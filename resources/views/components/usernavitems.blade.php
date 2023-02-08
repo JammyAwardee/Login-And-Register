@@ -1,7 +1,7 @@
-<ul class="flex space-x-6 mr-6 text-lg">
+<ul class="block sm:flex space-x-6 mx-5 text-lg">
     @auth
-    <li>
-        <span class="font-bold uppercase">Welcome {{ Auth::user()->name }}</span>
+    <li class="hidden sm:block">
+        <span class="font-bold">Welcome {{ Auth::user()->name }}</span>
     </li>
     <li>
         <a href="/users/profile" class="hover:text-laravel"
@@ -17,12 +17,15 @@
         </form>
     </li>
     @else
+    <li class="hidden sm:block">
+        <span class="font-bold">Welcome Guest</span>
+    </li>
     <li>
         <a  class="hover:text-laravel" href="{{ route('register') }}">{{ __('Register') }}</a
         >
     </li>
     <li>
-        <a href="/login" class="hover:text-laravel" href="{{ route('login') }}">{{ __('Login') }}</a>
+        <a class="hover:text-laravel" href="{{ route('login') }}">{{ __('Login') }}</a>
     </li>
     @endauth
 </ul>

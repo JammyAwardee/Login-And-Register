@@ -57,4 +57,18 @@ class User extends Authenticatable
             get: fn ($value) =>  ["user", "official", "admin"][$value],
         );
     }
+
+    public function residents() {
+        return $this->belongsTo(Residents::class, 'user_id');
+    }
+
+    public function newsandupdates(){
+        return $this->hasMany(NewsandUpdates::class, 'user_id');
+    }
+
+    public function projects(){
+        return $this->hasMany(Projects::class, 'user_id');
+    }
+
+
 }
