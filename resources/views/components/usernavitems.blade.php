@@ -1,31 +1,15 @@
-<ul class="block sm:flex space-x-6 mx-5 text-lg">
     @auth
-    <li class="hidden sm:block">
-        <span class="font-bold">Welcome {{ Auth::user()->name }}</span>
-    </li>
-    <li>
-        <a href="/users/profile" class="hover:text-laravel"
-            >Profile</a
-        >
-    </li>
-    <li>
+
         <form class="inline" action="{{ route('logout') }}" method="POST">
             @csrf
-            <button type="submit">
+            <button type="submit" class="text-white bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm pl-4 lg:pl-5 py-2 lg:py-2.5 mr-2 focus:outline-none">
                 </i>Logout
             </button>
         </form>
-    </li>
+    
     @else
-    <li class="hidden sm:block">
-        <span class="font-bold">Welcome Guest</span>
-    </li>
-    <li>
-        <a  class="hover:text-laravel" href="{{ route('register') }}">{{ __('Register') }}</a
-        >
-    </li>
-    <li>
-        <a class="hover:text-laravel" href="{{ route('login') }}">{{ __('Login') }}</a>
-    </li>
+    
+    <a href="{{ route('login') }}" class="text-gray-200 hover:text-amber-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">{{ __('Login') }}</a>
+    
     @endauth
-</ul>
+{{-- </ul> --}}

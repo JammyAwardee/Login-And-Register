@@ -31,11 +31,11 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
   
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    Route::get('/users/profile', [ProfileController::class, 'profile']);
-    
-    Route::patch('/users/profile', [ProfileController::class, 'update']);
-    
-    Route::delete('/users/profile', [ProfileController::class, 'delete']);
+    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+
+    Route::post('/update-profile', [HomeController::class, 'updateProfile'])->name('update-profile');
+
+    Route::post('/update-password', [HomeController::class, 'updatePassword'])->name('update-password');
 });
   
 /*------------------------------------------
@@ -47,11 +47,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 
-    // Route::get('/admin/profile', [ProfileController::class, 'profile'])->name('profile.edit');
-
-    // Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
-
-    // Route::delete('/admin/profile', [ProfileController::class, 'delete'])->name('profile.destroy');
 });
   
 /*------------------------------------------
@@ -63,12 +58,10 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
   
     Route::get('/official/home', [HomeController::class, 'officialHome'])->name('official.home');
 
-    // Route::get('/users', [UserController::class, 'allusers']);
+    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 
-    // Route::get('/users/{id}', [UserController::class, 'show']);
+    Route::post('/update-profile', [HomeController::class, 'updateProfile'])->name('update-profile');
 
-    // Route::patch('/users/{id}', [UserController::class, 'edit']);
-
-    // Route::delete('/users/{id}', [UserController::class, 'delete']);
+    Route::post('/update-password', [HomeController::class, 'updatePassword'])->name('update-password');
 });
 
