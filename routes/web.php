@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Models\Residents;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -58,10 +59,12 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
   
     Route::get('/official/home', [HomeController::class, 'officialHome'])->name('official.home');
 
-    Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
+    Route::get('/official/profile', [HomeController::class, 'officialProfile'])->name('official-profile');
 
-    Route::post('/update-profile', [HomeController::class, 'updateProfile'])->name('update-profile');
+    Route::post('/official/update-profile', [HomeController::class, 'updateOfficialProfile'])->name('official-update-profile');
 
-    Route::post('/update-password', [HomeController::class, 'updatePassword'])->name('update-password');
+    Route::post('/official/update-password', [HomeController::class, 'updateOfficialPassword'])->name('official-update-password');
+
+    Route::get('/residents', [Residents::class, 'index'])->name('residents');
 });
 
