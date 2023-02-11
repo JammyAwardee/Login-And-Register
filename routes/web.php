@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HouseholdsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentsController;
 use App\Http\Controllers\UserController;
@@ -68,6 +69,8 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
 
     Route::get('/residents', [ResidentsController::class, 'index'])->name('residents');
 
-    Route::get('/residents/{resident}', [ResidentsController::class, 'show']);
+    // Route::get('/residents/{resident}', [ResidentsController::class, 'show']);
+
+    Route::get('/households', [HouseholdsController::class, 'index'])->name('households');
 });
 
