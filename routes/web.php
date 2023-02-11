@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResidentsController;
 use App\Http\Controllers\UserController;
 use App\Models\Residents;
 use Illuminate\Support\Facades\Auth;
@@ -65,6 +66,6 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
 
     Route::post('/official/update-password', [HomeController::class, 'updateOfficialPassword'])->name('official-update-password');
 
-    Route::get('/residents', [Residents::class, 'index'])->name('residents');
+    Route::get('/residents', [ResidentsController::class, 'index'])->name('residents');
 });
 
