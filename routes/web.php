@@ -67,5 +67,7 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
     Route::post('/official/update-password', [HomeController::class, 'updateOfficialPassword'])->name('official-update-password');
 
     Route::get('/residents', [ResidentsController::class, 'index'])->name('residents');
+
+    Route::get('/residents/{resident}', [ResidentsController::class, 'show']);
 });
 
