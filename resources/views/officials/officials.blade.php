@@ -19,7 +19,7 @@
                 Residents
                 
             </header>
-            @include('partials._search')
+            @include('partials._officialssearch')
         </section>
         @unless(count($officials)==0)
         <div class="flex flex-col">
@@ -84,7 +84,7 @@
               </div>
             </div>
           </div>
-          @else <p class="text-center text-gray-800 py-10 text-xl">No residents found</p>
+          @else <p class="text-center text-gray-800 py-10 text-xl">No Barangay Officials found</p>
           @endunless
           <div class="mx-auto max-w-lg pt-6 p-4">
             {{$officials->links()}}
