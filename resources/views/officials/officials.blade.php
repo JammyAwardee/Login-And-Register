@@ -21,38 +21,31 @@
             </header>
             @include('partials._search')
         </section>
-        @unless (count($residents) == 0)
+        @unless(count($officials)==0)
         <div class="flex flex-col">
             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="overflow-x-auto">
+                <div class="overflow-hidden">
                   <table class="min-w-full">
                     <thead class="bg-white border-b">
                       <tr>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          @sortablelink('id', 'Id')
+                          Brgy Official Id
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          @sortablelink('last_name', 'Full Name')
-                        </th>
-                        
-                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          @sortablelink('gender', 'Gender')
+                          Resident Id
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          @sortablelink('b_date', 'Age')
+                          Full Name
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          @sortablelink('civil_status', 'Civil Status')
+                          Role
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          @sortablelink('contact_email', 'Email')
+                          Term Start Date
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          @sortablelink('contact_phone', 'Phone')
-                        </th>
-                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          @sortablelink('updated_at', 'Updated At')
+                          Term End Date
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                           Actions
@@ -60,53 +53,42 @@
                       </tr>
                     </thead>
                     <tbody>
-                      
-                      @foreach ($residents as $resident)
+                        @foreach($officials as $official)
                       <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {{$resident['id']}}
+                            {{$official->id}}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {{$resident['last_name']}}, {{$resident['first_name']}} {{$resident['middle_name']}} {{$resident['suffix']}}
-                        </td>
-                        
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$resident['gender']}}
+                            {{$official->resident_id}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$resident->age()}}
+                          {{$official->last_name}}, {{$official->first_name}} {{$official->middle_name}} {{$official->suffix}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$resident['civil_status']}}
+                          {{$official->role}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$resident['contact_email']}}
+                            {{$official->term_start}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$resident['contact_phone']}}
+                            {{$official->term_end}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          {{$resident['updated_at']}}
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          <a href="" class="inline, text-yellow-600 text-lg mr-6"><i class="fa-solid fa-pen"></i></a><a href="" class="inline text-red-700 text-lg"><i class="fa-solid fa-trash-can"></i></a>
+                            <a href="" class="inline, text-yellow-600 text-lg mr-6"><i class="fa-solid fa-pen"></i></a><a href="" class="inline text-red-700 text-lg"><i class="fa-solid fa-trash-can"></i></a>
                         </td>
                       </tr>
                       @endforeach
-                      
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
           </div>
+          @else <p class="text-center text-gray-800 py-10 text-xl">No residents found</p>
+          @endunless
+          <div class="mx-auto max-w-lg pt-6 p-4">
+            {{$officials->links()}}
+          </div>
     </div>
 </main>
-@else <p class="text-center text-gray-800 py-10 text-xl">No residents found</p>
-@endunless
-<div class="mx-auto max-w-lg pt-6 p-4">
-  {{$residents->links()}}
-</div>
-
-
 </x-app>

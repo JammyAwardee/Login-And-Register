@@ -86,7 +86,7 @@
                             {{$household->toilet_type}}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          @mdo
+                            <a href="" class="inline, text-yellow-600 text-lg mr-6"><i class="fa-solid fa-pen"></i></a><a href="" class="inline text-red-700 text-lg"><i class="fa-solid fa-trash-can"></i></a>
                         </td>
                       </tr>
                     @endforeach

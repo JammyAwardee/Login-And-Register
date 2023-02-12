@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangayOfficialsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HouseholdsController;
 use App\Http\Controllers\ProfileController;
@@ -72,5 +73,7 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
     // Route::get('/residents/{resident}', [ResidentsController::class, 'show']);
 
     Route::get('/households', [HouseholdsController::class, 'index'])->name('households');
+
+    Route::get('/officials', [BarangayOfficialsController::class, 'index'])->name('officials');
 });
 

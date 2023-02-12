@@ -2,13 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class BarangayOfficials extends Model
 {
     use HasFactory;
 
+    public function age()
+    {
+        return Carbon::parse($this->attributes['b_date'])->age;
+    }
     public function residents(){
         return $this->hasOne(Residents::class, 'resident_id');
     }
