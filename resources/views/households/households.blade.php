@@ -19,15 +19,15 @@
                 Residents
                 
             </header>
-            @include('partials._search')
+            @include('partials._householdssearch')
         </section>
         @unless(count($households) == 0)
         <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="overflow-hidden">
-                  <table class="min-w-full">
-                    <thead class="bg-white border-b">
+          <div class="overflow-x-auto">
+            <div class="py-2 inline-block min-w-full">
+              <div class="overflow-x-auto">
+                <table class="min-w-full px-2">
+                  <thead class="bg-white border-b">
                       <tr>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                           Id
@@ -98,10 +98,11 @@
           </div>
           @else <p class="text-center text-gray-800 py-10 text-xl">No residents found</p>
           @endunless
-          <div class="mx-auto max-w-lg pt-6 p-4">
+          <div class="w-full py-3 rounded-b-md mb-5 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
             {{$households->links()}}
           </div>
     </div>
 </main>
+@include('partials._addhouseholdbutton')
 
 </x-app>

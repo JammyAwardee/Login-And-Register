@@ -77,5 +77,7 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
     Route::get('/officials', [BarangayOfficialsController::class, 'index'])->name('officials');
 
     Route::post('/officials/search', [BarangayOfficialsController::class, 'search']);
+
+    Route::post('/households/search', [HouseholdsController::class, 'search']);
 });
 

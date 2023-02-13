@@ -1,5 +1,5 @@
 <div class="flex items-center lg:mx-40 sm:mx-20 mx-5">
-    <form action={{url('/officials/search')}} method="POST" class="flex items-center my-5 w-full">   
+    <form action={{url('/households/search')}} method="POST" class="flex items-center my-5 w-full">   
         @csrf
         <label for="search" class="sr-only">Search</label>
         <div class="relative w-full">
