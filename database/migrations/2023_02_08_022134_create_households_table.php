@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('households', function (Blueprint $table) {
             $table->id();
+            $table->string('household_head');
             $table->string('province');
             $table->string('city');
             $table->string('barangay');

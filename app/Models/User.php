@@ -59,7 +59,15 @@ class User extends Authenticatable
     }
 
     public function residents() {
-        return $this->belongsTo(Residents::class, 'user_id');
+        return $this->hasMany(Residents::class, 'user_id');
+    }
+
+    public function barangayofficials(){
+        return $this->hasMany(BarangayOfficials::class, 'user_id');
+    }
+
+    public function households(){
+        return $this->hasMany(Households::class, 'user_id');
     }
 
     public function newsandupdates(){

@@ -21,4 +21,8 @@ class BarangayOfficials extends Model
     public function zones(){
         return $this->belongsTo(Zones::class, 'barangay_official_id');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

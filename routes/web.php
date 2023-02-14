@@ -59,25 +59,32 @@ All Officials Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:official'])->group(function () {
-  
+    
     Route::get('/official/home', [HomeController::class, 'officialHome'])->name('official.home');
-
+    
     Route::get('/official/profile', [HomeController::class, 'officialProfile'])->name('official-profile');
-
+    
     Route::post('/official/update-profile', [HomeController::class, 'updateOfficialProfile'])->name('official-update-profile');
-
+    
     Route::post('/official/update-password', [HomeController::class, 'updateOfficialPassword'])->name('official-update-password');
-
+    
     Route::get('/residents', [ResidentsController::class, 'index'])->name('residents');
-
+    
     // Route::get('/residents/{resident}', [ResidentsController::class, 'show']);
-
+    
     Route::get('/households', [HouseholdsController::class, 'index'])->name('households');
+    
+    Route::get('/households/create', [HouseholdsController::class, 'create']);
+    
+    Route::post('/households/store', [HouseholdsController::class, 'store']);
+
+    Route::get('/households/{household}/edit', [HouseholdsController::class, 'edit']);
+
+    Route::put('/households/{household}', [HouseholdsController::class, 'update']);
 
     Route::get('/officials', [BarangayOfficialsController::class, 'index'])->name('officials');
 
     Route::post('/officials/search', [BarangayOfficialsController::class, 'search']);
 
-    Route::post('/households/search', [HouseholdsController::class, 'search']);
 });
 

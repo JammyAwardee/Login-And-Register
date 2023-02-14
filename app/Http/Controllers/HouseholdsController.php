@@ -2,51 +2,77 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Models\Households;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 
 class HouseholdsController extends Controller
 {
-    public function index(){
-        $householdHeads = DB::table('residents')
-            ->select('household_id', 'last_name', 'first_name', 'middle_name', 'suffix')
-            ->where('relation_to_head', 'head')
-            ->orderBy('household_id', 'asc');
-
-        $households = array("households" => DB::table('households')
-            ->joinSub($householdHeads, 'householdHeads', function ($join) {
-                $join->on('households.id', '=', 'householdHeads.household_id');
-            })->orderBy('updated_at', 'desc')->paginate(10));
-        return view('households.households', $households);
+    
+    public function index(Request $request){
+        return view('households.households', ['households' => Households::latest()->filter(request(['search']))->paginate(10)]);
     }
-    public function search(Request $request){
-        $query = ($request->input('search'));
-        if ($query != '') {
-            $householdHeads = DB::table('residents')
-            ->select('household_id', 'last_name', 'first_name', 'middle_name', 'suffix')
-            ->where('relation_to_head', 'head')
-            ->orderBy('household_id', 'asc');
 
-            $households = array(
-                "households" => DB::table('households')
-                    ->joinSub($householdHeads, 'householdHeads', function ($join) {
-                        $join->on('households.id', '=', 'householdHeads.household_id');
-                    })
-                    ->where('id', 'like', '%' . $query . '%')
-                    ->orWhere('last_name', 'like', '%' . $query . '%')
-                    ->orWhere('first_name', 'like', '%' . $query . '%')
-                    ->orWhere('middle_name', 'like', '%' . $query . '%')
-                    ->orWhere('suffix', 'like', '%' . $query . '%')
-                    ->orWhere('street_address', 'like', '%' . $query . '%')
-                    ->paginate(10)
-            );
+    public function create(){
+        return view('households.createhousehold');
+    }
+
+    public function store(Request $request){
         
-            if(count($households)>0){
-                return view('households.households', $households);
-            }
-            return redirect('/households');
+        $validator = Validator::make($request->all(), [
+            'province' => ['required'],
+            'city' => ['required'],
+            'barangay' => ['required'],
+            'zone_id' => ['required'],
+            'street_address' => ['required'],
+            'ownership_status' => ['required'],
+            'dwelling_type' => ['required'],
+            'water_source' => ['required'],
+            'lighting_source' => ['required'],
+            'toilet_type' => ['required'],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/households/create')
+                        ->withErrors($validator)
+                        ->withInput();
         }
-        return redirect ('/households')->with('error', "Please search by Official's name, role");
+        $validated = $validator->validated();
+        $validated['user_id'] = auth()->id();
+        Households::create($validated);
+        return redirect('/households')->with('status', 'Household created successfully!');
+    }
+
+    public function edit(Households $household){
+        // dd($household);
+        return view('households.edithousehold', ['household' => $household]);
+    }
+
+    public function update(Request $request, Households $household) {
+        $validator = Validator::make($request->all(), [
+            'province' => ['required'],
+            'city' => ['required'],
+            'barangay' => ['required'],
+            'zone_id' => ['required'],
+            'street_address' => ['required'],
+            'ownership_status' => ['required'],
+            'dwelling_type' => ['required'],
+            'water_source' => ['required'],
+            'lighting_source' => ['required'],
+            'toilet_type' => ['required'],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/households/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        $validated = $validator->validated();
+        $household->update($validated);
+        return back()->with('status', 'Household updated successfully!');
     }
 }
