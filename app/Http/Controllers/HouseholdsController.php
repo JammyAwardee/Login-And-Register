@@ -75,4 +75,9 @@ class HouseholdsController extends Controller
         $household->update($validated);
         return back()->with('status', 'Household updated successfully!');
     }
+
+    public function destroy(Households $household){
+        $household->delete();
+        return back()->with('status', 'Household deleted successfully');
+    }
 }

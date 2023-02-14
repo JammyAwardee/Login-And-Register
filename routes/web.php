@@ -82,6 +82,8 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
 
     Route::put('/households/{household}', [HouseholdsController::class, 'update']);
 
+    Route::delete('/households/{household}', [HouseholdsController::class, 'destroy']);
+
     Route::get('/officials', [BarangayOfficialsController::class, 'index'])->name('officials');
 
     Route::post('/officials/search', [BarangayOfficialsController::class, 'search']);
