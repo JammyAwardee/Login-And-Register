@@ -24,7 +24,7 @@ class Households extends Model
                 ;
         }
     }
-    protected $fillable = ['province', 'city', 'barangay', 'zone_id', 'street_address', 'ownership_status', 'dwelling_type', 'water_source', 'lighting_source', 'toilet_type', 'user_id'];
+    protected $fillable = ['household_head','province', 'city', 'barangay', 'zone_id', 'street_address', 'ownership_status', 'dwelling_type', 'water_source', 'lighting_source', 'toilet_type', 'created_by', 'last_update_by'];
     public function residents(){
         return $this->hasMany(Residents::class, 'household_id');
     }

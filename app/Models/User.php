@@ -13,12 +13,13 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    // public $table = 'user';
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    
     protected $fillable = [
         'name',
         'email',
@@ -56,6 +57,15 @@ class User extends Authenticatable
         return new Attribute(
             get: fn ($value) =>  ["user", "official", "admin"][$value],
         );
+    }
+
+
+    public function scopeFilter($query, array $filters){
+        if ($filters['search'] ?? false) {
+            $query->where('name', 'like', '%' . request('search') . '%')
+                ->orWhere('email', 'like', '%' . request('search') . '%')
+                ->orWhere('id', request('search'));
+        }
     }
 
     public function residents() {

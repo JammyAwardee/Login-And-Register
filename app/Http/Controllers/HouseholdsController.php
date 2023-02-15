@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\Households;
+use App\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +25,7 @@ class HouseholdsController extends Controller
     public function store(Request $request){
         
         $validator = Validator::make($request->all(), [
+            'household_head' => ['required', Rule::unique('households')],
             'province' => ['required'],
             'city' => ['required'],
             'barangay' => ['required'],
@@ -42,8 +44,9 @@ class HouseholdsController extends Controller
                         ->withInput();
         }
         $validated = $validator->validated();
-        $validated['user_id'] = auth()->id();
+        $log = array('action'=>'created', 'by_userId'=>auth()->id(), 'by_userName'=>auth()->user()->name, 'receiver_type'=>'household', 'receiver_name'=>$validated['household_head']);
         Households::create($validated);
+        Log::create($log);
         return redirect('/households')->with('status', 'Household created successfully!');
     }
 
@@ -54,6 +57,7 @@ class HouseholdsController extends Controller
 
     public function update(Request $request, Households $household) {
         $validator = Validator::make($request->all(), [
+            'household_head' => ['required'],
             'province' => ['required'],
             'city' => ['required'],
             'barangay' => ['required'],
@@ -72,12 +76,16 @@ class HouseholdsController extends Controller
                         ->withInput();
         }
         $validated = $validator->validated();
+        $log = array('action'=>'updated', 'by_userId'=>auth()->id(), 'by_userName'=>auth()->user()->name, 'receiver_type'=>'household', 'receiver_name'=>$household->household_head);
         $household->update($validated);
+        Log::create($log);
         return back()->with('status', 'Household updated successfully!');
     }
 
     public function destroy(Households $household){
+        $log = array('action'=>'deleted', 'by_userId'=>auth()->id(), 'by_userName'=>auth()->user()->name, 'receiver_type'=>'household', 'receiver_name'=>$household->household_head);
         $household->delete();
+        Log::create($log);
         return back()->with('status', 'Household deleted successfully');
     }
 }

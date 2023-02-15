@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentsController;
 use App\Http\Controllers\UserController;
 use App\Models\Residents;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -67,10 +68,22 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
     Route::post('/official/update-profile', [HomeController::class, 'updateOfficialProfile'])->name('official-update-profile');
     
     Route::post('/official/update-password', [HomeController::class, 'updateOfficialPassword'])->name('official-update-password');
+
+    Route::get('/users', [UserController::class, 'index']);
+    
+    Route::get('/users/create', [UserController::class, 'create']);
+
+    Route::post('/users', [UserController::class, 'store']);
+
+    Route::get('/users/{user}/edit', [UserController::class, 'useredit']);
+
+    Route::put('/users/{user}', [UserController::class, 'userprofilestore']);
+
+    Route::delete('/users/{user}', [UserController::class, 'destroy']);
+
+    Route::put('/users/{user}/password', [UserController::class, 'userpasswordstore']);
     
     Route::get('/residents', [ResidentsController::class, 'index'])->name('residents');
-    
-    // Route::get('/residents/{resident}', [ResidentsController::class, 'show']);
     
     Route::get('/households', [HouseholdsController::class, 'index'])->name('households');
     

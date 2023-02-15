@@ -23,6 +23,15 @@
             <form action="/households/store" method="POST">
                 @csrf
                 <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                    <div class="col-span-2">
+                        <label for="household_head" class="block mb-2 text-sm font-medium text-gray-900 ">Household Head</label>
+                        <input type="text" name="household_head" id="household_head"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="LastName, FirstName MiddleName Suffix" value={{old('household_head')}}>
+                        @error('household_head')
+                            <p class="text-red-500 text-xs mt-2">
+                                {{$message}}
+                            </p>
+                        @enderror
+                    </div>
                     <div>
                         <label for="province" class="block mb-2 text-sm font-medium text-gray-900 ">Province</label>
                         <input type="text" name="province" id="province"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Enter Province" value={{old('province')}}>
@@ -100,9 +109,9 @@
                     <label for="water_source" class="block mb-2 text-sm font-medium text-gray-900 ">Water Source</label>
                     <select id="water_source" name="water_source" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                         <option selected="" {{old('water_source') == "" ? 'selected' : ''}}></option>
-                        <option value="Deep Well" {{old('water_source') == "" ? 'selected' : ''}}>Deep Well</option>
-                        <option value="Faucet" {{old('water_source') == "" ? 'selected' : ''}}>Faucet</option>
-                        <option value="Open Well" {{old('water_source') == "" ? 'selected' : ''}}>Open Well</option>
+                        <option value="Deep Well" {{old('water_source') == "Deep Well" ? 'selected' : ''}}>Deep Well</option>
+                        <option value="Faucet" {{old('water_source') == "Faucet" ? 'selected' : ''}}>Faucet</option>
+                        <option value="Open Well" {{old('water_source') == "Open Well" ? 'selected' : ''}}>Open Well</option>
                     </select>
                     @error('water_source')
                             <p class="text-red-500 text-xs mt-2">
