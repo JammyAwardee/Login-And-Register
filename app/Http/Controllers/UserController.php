@@ -20,13 +20,13 @@ class UserController extends Controller
 
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
-            "name" => ['required', Rule::unique('user')],
-            "email" => ['required', Rule::unique('user', 'email')],
+            "name" => ['required', Rule::unique('Users')],
+            "email" => ['required', Rule::unique('users', 'email')],
             "password" => ['required'],
             "type" => ['required'],
         ]);
         if ($validator->fails()) {
-            return redirect('/officialusers/create')
+            return back()
                         ->withErrors($validator)
                         ->withInput();
         }
@@ -35,7 +35,7 @@ class UserController extends Controller
         $log = array('action'=>'created', 'by_userId'=>auth()->id(), 'by_userName'=>auth()->user()->name, 'receiver_type'=>'user profile', 'receiver_name'=>$validated['name']);
         User::create($validated);
         Log::create($log);
-        return redirect('/official/home')->with('status', 'New user successfully created');
+        return back()->with('status', 'New user successfully created');
 
     }
 

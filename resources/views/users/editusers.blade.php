@@ -1,7 +1,7 @@
 <x-app>
-    @include('partials._officialnav')
-    <main class="sm:container sm:mx-auto sm:max-w-5xl pt-28">
-        <div class="flex">
+    @include('partials._adminnav')
+    <main class="sm:container mx-5 sm:mx-auto sm:max-w-5xl pt-28 mb-10 ">
+        <div class="flex ">
             <div class="w-full pb-20">
                 @if (session('status'))
                 <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
@@ -14,8 +14,8 @@
                 @endif
                 <section class="flex flex-col break-words bg-gray-50 sm:border-1 sm:rounded-md sm:shadow-lg pb-10">
     
-                    <header class="text-lg bg-blue-300 text-gray-800 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                        Update User: <span class="font-semibold text-black">{{$user->name}}</span> 
+                    <header class="text-lg shadow-lg bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                        Update User: <span class="font-semibold text-white">{{$user->name}}</span> 
                     </header>
                     <div class="grid gap-2 mb-4 sm:grid-cols-2">
                     <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST"
@@ -58,7 +58,7 @@
                                 <option value="" {{$user->type == "" ? 'selected' : ''}}></option>
                                 <option value=0 {{$user->type == 0 ? 'selected' : ''}}>User</option>
                                 <option value=1 {{$user->type == 1 ? 'selected' : ''}}>Official</option>
-                                {{-- <option value=2 {{old('2') == "Admin" ? 'selected' : ''}}>Admin</option> --}}
+                                <option value=2 {{$user->type == "Admin" ? 'selected' : ''}}>Admin</option>
                             </select>
                               @error('type')
                                   <p class="text-red-500 text-xs mt-2">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="flex flex-wrap">
                             <button type="submit"
-                                class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
+                                class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-600 sm:py-4">
                                 {{ __('Submit') }}
                             </button>
                         </div>
@@ -115,7 +115,7 @@
 
                         <div class="flex flex-wrap">
                             <button type="submit"
-                                class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
+                                class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-600 sm:py-4">
                                 {{ __('Submit') }}
                             </button>
                         </div>
@@ -125,6 +125,6 @@
             </div>
         </div>
     </main>
-    
+    @include('partials._usersbackbutton')
     
     </x-app>

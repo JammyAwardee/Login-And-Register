@@ -1,6 +1,6 @@
 <x-app>
-    @include('partials._officialnav')
-    <main class="sm:container sm:mx-auto sm:mt-10 pt-20">
+    @include('partials._adminnav')
+    <main class="sm:container sm:mx-auto sm:mt-10 pt-20 mb-10">
         <div class="max-w-4xl mx-auto sm:px-6">
     
             @if (session('status'))
@@ -13,35 +13,35 @@
                     </div>
                     @endif
     
-            <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] sm:border-1 sm:rounded-md sm:shadow-lg">
+            <section class="shadow-lg flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] sm:border-1 sm:rounded-md sm:shadow-lg">
     
-                <header class="font-semibold bg-blue-300 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="text-lg font-semibold bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                     Users
                     
                 </header>
                 @include('partials._userssearch')
             </section>
             @unless(count($users) == 0)
-            <div class="flex flex-col">
+            <div class="flex flex-col shadow-lg">
               <div class="overflow-x-auto">
                 <div class="py-2 inline-block min-w-full">
                   <div class="overflow-x-auto">
                     <table class="min-w-full px-2">
                       <thead class="bg-white border-b">
                           <tr>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                            <th scope="col" class="text-base font-semibold text-gray-900 px-6 py-4 text-left">
                               Id
                             </th>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                            <th scope="col" class="text-base font-semibold text-gray-900 px-6 py-4 text-left">
                               Name
                             </th>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                            <th scope="col" class="text-base font-semibold text-gray-900 px-6 py-4 text-left">
                               Email
                             </th>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                            <th scope="col" class="text-base font-semibold text-gray-900 px-6 py-4 text-left">
                               Type
                             </th>
-                            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                            <th scope="col" class="text-base font-semibold text-gray-900 px-6 py-4 text-left">
                               Actions
                             </th>
                           </tr>
@@ -49,19 +49,19 @@
                         <tbody>
                         @foreach($users as $user)
                           <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            <td class="px-6 py-4 whitespace-nowrap text-base font-normal text-gray-900">
                                 {{$user->id}}
                             </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            <td class="text-base font-normal text-gray-900 px-6 py-4 whitespace-nowrap">
                                 {{$user->name}}
                             </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            <td class="text-base font-normal text-gray-900 px-6 py-4 whitespace-nowrap">
                                 {{$user->email}}
                             </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            <td class="text-base font-normal text-gray-900 px-6 py-4 whitespace-nowrap">
                                 {{$user->type}}
                             </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            <td class="text-base font-normal text-gray-900 px-6 py-4 whitespace-nowrap">
                                 <a href="/users/{{$user->id}}/edit" class="inline, text-yellow-600 text-lg mr-6"><i class="fa-solid fa-pen"></i></a> <button class="inline text-red-700 text-lg" role="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" data-bs-att="/users/{{$user->id}}"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                           </tr>
@@ -107,8 +107,11 @@
               </div>
               @else <p class="text-center text-gray-800 py-10 text-xl">No residents found</p>
               @endunless
-              <div class="w-full py-3 rounded-b-md mb-5 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
+              <div>
+              <div class="w-full py-3 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
                 {{$users->links()}}
+              </div>
+              <div class="h-16 bg-blue-200 rounded-md"></div>
               </div>
         </div>
     </main>

@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
+use App\Models\Residents;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use App\Models\BarangayOfficials;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class BarangayOfficialsController extends Controller
 {
@@ -36,4 +41,50 @@ class BarangayOfficialsController extends Controller
         }
         return redirect ('/officials')->with('error', "Please search by Official's name, role");
     }
+
+    public function create(){
+        $data = ['id' => 1, 'fullname' => 'Barangay Official'];
+        return view('officials.createofficial', ['residents' => Residents::latest()->filter(request(['search']))->paginate(1), 'data'=>$data]);
+    }
+
+    public function createidhelper(Request $request) {
+        // dd($request->id);
+        // 
+        $validator = Validator::make($request->all(), [
+            'id' => ['required'],
+            'fullname' => ['required']
+        ]);
+
+        $validated = $validator->validated();
+        $data = ['id' => 1, 'fullname' => 'Official Name'];
+        // dd($data['id']);
+        $data = $validated;
+        // dd($data['fullname']);
+
+        return view('officials.createofficial', array('residents'=> Residents::latest()->filter(request(['search']))->paginate(1), 'data' => $data));
+    }
+
+    public function store(Request $request){
+        $validator = Validator::make($request->all(), [
+            'resident_id' => ['required', Rule::unique('officials')],
+            'barangayofficial_name' => ['required'],
+            'role' => ['required'],
+            'term_start' => ['required'],
+            'term_end' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/officials/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $validated = $validator->validated();
+        $log = array('action'=>'created', 'by_userId'=>auth()->id(), 'by_userName'=>auth()->user()->name, 'receiver_type'=>'barangay official profile', 'receiver_name'=>$validated['resident_id']);
+        BarangayOfficials::create($validated);
+        Log::create($log);
+        return redirect('/officials')->with('status', 'Barangay Official created successfully!');
+    }
+
+
 }

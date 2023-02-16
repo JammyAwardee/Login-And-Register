@@ -1,5 +1,5 @@
 <x-app>
-@include('partials._usernav')
+@include('partials._adminnav')
 <main class="sm:container sm:mx-auto mt-28">
     <div class="w-full sm:px-6">
 

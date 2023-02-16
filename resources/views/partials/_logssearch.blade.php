@@ -1,5 +1,5 @@
 <div class="flex items-center mx-5">
-    <form action={{url('/officials/search')}} method="POST" class="flex items-center my-5 w-full">   
+    <form action={{url('/logs')}} class="flex items-center my-5 w-full">   
         @csrf
         <label for="search" class="sr-only">Search</label>
         <div class="relative w-full">
@@ -13,6 +13,6 @@
         </button>
     </form>
     <div class="inline-flex items-center text-center py-1.5 px-3 ml-2 text-sm font-medium text-blue-600 sm:text-white sm:bg-blue-500 rounded-lg sm:border sm:border-blue-700 sm:hover:bg-yellow-500 sm:hover:text-gray-100 sm:hover:border-yellow-500 sm:hover:shadow-lg hover:text-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300">
-        <a href="{{ url('/officials') }}" class="flex items-center" role="button"> <span class="text-lg sm:mr-2 sm:-ml-1"><i class="fa-solid fa-arrows-rotate"></i></span><span class="hidden sm:block">Reset</span></a>
+        <a href="{{ url('/logs') }}" class="flex items-center" role="button"> <span class="text-lg sm:mr-2 sm:-ml-1"><i class="fa-solid fa-arrows-rotate"></i></span><span class="hidden sm:block">Reset</span></a>
     </div>
     </div>
