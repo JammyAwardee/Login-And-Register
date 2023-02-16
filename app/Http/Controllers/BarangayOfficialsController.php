@@ -49,7 +49,6 @@ class BarangayOfficialsController extends Controller
 
     public function createidhelper(Request $request) {
         // dd($request->id);
-        // 
         $validator = Validator::make($request->all(), [
             'id' => ['required'],
             'fullname' => ['required']
@@ -66,7 +65,7 @@ class BarangayOfficialsController extends Controller
 
     public function store(Request $request){
         $validator = Validator::make($request->all(), [
-            'resident_id' => ['required', Rule::unique('officials')],
+            'resident_id' => ['required', Rule::unique('barangayofficials')],
             'barangayofficial_name' => ['required'],
             'role' => ['required'],
             'term_start' => ['required'],
@@ -80,7 +79,7 @@ class BarangayOfficialsController extends Controller
         }
 
         $validated = $validator->validated();
-        $log = array('action'=>'created', 'by_userId'=>auth()->id(), 'by_userName'=>auth()->user()->name, 'receiver_type'=>'barangay official profile', 'receiver_name'=>$validated['resident_id']);
+        $log = array('action'=>'created', 'by_userId'=>auth()->id(), 'by_userName'=>auth()->user()->name, 'receiver_type'=>'barangay official profile', 'receiver_name'=>$validated['barangayofficial_name']);
         BarangayOfficials::create($validated);
         Log::create($log);
         return redirect('/officials')->with('status', 'Barangay Official created successfully!');

@@ -10,6 +10,10 @@ class BarangayOfficials extends Model
 {
     use HasFactory;
 
+    protected $table = 'barangayofficials';
+
+    protected $fillable = ['resident_id', 'barangayofficial_name', 'role', 'term_start', 'term_end'];
+
     public function age()
     {
         return Carbon::parse($this->attributes['b_date'])->age;

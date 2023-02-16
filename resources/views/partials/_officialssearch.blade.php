@@ -1,4 +1,4 @@
-<div class="flex items-center mx-5">
+<div class="flex items-center lg:mx-40 md:mx-20 mx-5">
     <form action={{url('/officials/search')}} method="POST" class="flex items-center my-5 w-full">   
         @csrf
         <label for="search" class="sr-only">Search</label>

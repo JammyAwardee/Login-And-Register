@@ -21,27 +21,25 @@
                 </header>
                 @include('partials._addofficialsearch')
                 @unless(count($residents)==0)
-                <form class="px-5 mb-10" action="/officials/createidhelper" method="POST">
+                <form class="px-16 mb-5" action="/officials/createidhelper" method="POST">
                     @csrf
                     @foreach ($residents as $resident)
                 <div class="grid grid-cols-6 gap-1">
                     <div class="col">
-                        <input type="number" name="id" id="id"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Enter Resident Id" value= "{{$resident->id}}" >
+                        <input type="number" name="id" id="id"  class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" value= "{{$resident->id}}" >
                     </div>
                     <div class="col-span-4">
-                        <input type="text" name="fullname" id="fullname"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Enter Resident Id" value= "{{$resident->last_name}}, {{$resident->first_name}} {{$resident->middle_name}} {{$resident->suffix}}">
+                        <input type="text" name="fullname" id="fullname"  class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" value= "{{$resident->last_name}}, {{$resident->first_name}} {{$resident->middle_name}} {{$resident->suffix}}">
                     </div>
-                    <div class="col flex items-center justify-center bg-blue-500 rounded-md text-gray-100">
-                        <button type="submit" >
+                    <button type="submit" class="text-center w-full bg-gray-100 rounded-md text-gray-800 hover:bg-gray-300 hover:text-blue-700">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        </button>
-                    </div>
+                    </button>
                 </div>
                 @endforeach
             </form>
-          @else <p class="text-center text-gray-800 py-10 text-xl">No Barangay Officials found</p>
+          @else <p class="text-center text-gray-800 py-10 text-lg">No Residents found</p>
           @endunless
-                <div class="px-5 sm:pb-5 rounded-b-lg pt-10 bg-blue-100 rounded-b-md">
+                <div class="px-16 sm:pb-5 rounded-b-lg pt-10 bg-blue-100 rounded-b-md">
                     <form action="/officials/store" method="POST">
                         @csrf
                         <div>
@@ -69,7 +67,7 @@
                                     <option value="" {{old('role') == "" ? 'selected' : ''}}></option>
                                     <option value="Chairman" {{old('role') == "Chairman" ? 'selected' : ''}}>Chairman</option>
                                     <option value="Kagawad" {{old('role') == "Kagawad" ? 'selected' : ''}}>Kagawad</option>
-                                    <option value="SK Chairman" {{old('role') == "SK Chairman" ? 'selected' : ''}}>SK Chairman</option>
+                                    <option value="Sanguniang Kabataan Chairman" {{old('role') == "Sanguniang Kabataan Chairman" ? 'selected' : ''}}>SK Chairman</option>
                                     <option value="Secretary" {{old('role') == "Secretary" ? 'selected' : ''}}>Secretary</option>
                                     <option value="Treasurer" {{old('role') == "Treasurer" ? 'selected' : ''}}>Treasurer</option>
                                 </select>
