@@ -85,5 +85,36 @@ class BarangayOfficialsController extends Controller
         return redirect('/officials')->with('status', 'Barangay Official created successfully!');
     }
 
+    public function edit(BarangayOfficials $official){
+        return view('officials.editofficial', ['official' => $official]);
+    }
+
+    public function update(Request $request, BarangayOfficials $official) {
+        $validator = Validator::make($request->all(), [
+            'resident_id' => ['required'],
+            'barangayofficial_name' => ['required'],
+            'role' => ['required'],
+            'term_start' => ['required'],
+            'term_end' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        $validated = $validator->validated();
+        $log = array('action'=>'updated', 'by_userId'=>auth()->id(), 'by_userName'=>auth()->user()->name, 'receiver_type'=>'barangay official profile', 'receiver_name'=>$official->barangayofficial_name);
+        $official->update($validated);
+        Log::create($log);
+        return redirect('/officials')->with('status', 'Official updated successfully!');
+    }
+
+    public function destroy(BarangayOfficials $official){
+        $log = array('action'=>'deleted', 'by_userId'=>auth()->id(), 'by_userName'=>auth()->user()->name, 'receiver_type'=>'barangay official profile', 'receiver_name'=>$official->barangayofficial_name);
+        $official->delete();
+        Log::create($log);
+        return back()->with('status', 'Official deleted successfully');
+    }
 
 }

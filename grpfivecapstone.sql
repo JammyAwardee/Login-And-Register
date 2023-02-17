@@ -11,7 +11,7 @@
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 08/02/2023 22:15:37
+ Date: 17/02/2023 08:38:05
 */
 
 SET NAMES utf8mb4;
@@ -24,28 +24,32 @@ DROP TABLE IF EXISTS `barangayofficials`;
 CREATE TABLE `barangayofficials`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `resident_id` bigint(20) UNSIGNED NOT NULL,
+  `barangayofficial_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `term_start` date NOT NULL,
   `term_end` date NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of barangayofficials
 -- ----------------------------
-INSERT INTO `barangayofficials` VALUES (1, 25, 'Chairman', '2018-06-30', NULL, '2023-02-08 19:47:16', '2023-02-08 19:47:23');
-INSERT INTO `barangayofficials` VALUES (2, 28, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:49:05', '2023-02-08 19:49:11');
-INSERT INTO `barangayofficials` VALUES (3, 10, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:49:53', '2023-02-08 19:49:57');
-INSERT INTO `barangayofficials` VALUES (4, 13, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:50:44', '2023-02-08 19:50:47');
-INSERT INTO `barangayofficials` VALUES (5, 31, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:51:33', '2023-02-08 19:51:37');
-INSERT INTO `barangayofficials` VALUES (6, 3, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:52:00', '2023-02-08 19:52:02');
-INSERT INTO `barangayofficials` VALUES (7, 32, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:52:19', '2023-02-08 19:52:21');
-INSERT INTO `barangayofficials` VALUES (8, 2, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:52:42', '2023-02-08 19:52:45');
-INSERT INTO `barangayofficials` VALUES (9, 9, 'Sanguniang Kabataan', '2018-06-30', NULL, '2023-02-08 19:53:12', '2023-02-08 19:53:16');
-INSERT INTO `barangayofficials` VALUES (10, 4, 'Treasurer', '2018-06-30', NULL, '2023-02-08 19:54:04', '2023-02-08 19:54:08');
-INSERT INTO `barangayofficials` VALUES (11, 23, 'Secretary', '2018-06-30', NULL, '2023-02-08 19:54:47', '2023-02-08 19:54:49');
+INSERT INTO `barangayofficials` VALUES (1, 25, NULL, 'Chairman', '2018-06-30', NULL, '2023-02-08 19:47:16', '2023-02-08 19:47:23');
+INSERT INTO `barangayofficials` VALUES (2, 28, NULL, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:49:05', '2023-02-08 19:49:11');
+INSERT INTO `barangayofficials` VALUES (3, 10, NULL, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:49:53', '2023-02-08 19:49:57');
+INSERT INTO `barangayofficials` VALUES (4, 13, NULL, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:50:44', '2023-02-08 19:50:47');
+INSERT INTO `barangayofficials` VALUES (5, 31, NULL, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:51:33', '2023-02-08 19:51:37');
+INSERT INTO `barangayofficials` VALUES (6, 3, NULL, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:52:00', '2023-02-08 19:52:02');
+INSERT INTO `barangayofficials` VALUES (7, 32, NULL, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:52:19', '2023-02-08 19:52:21');
+INSERT INTO `barangayofficials` VALUES (8, 2, NULL, 'Kagawad', '2018-06-30', NULL, '2023-02-08 19:52:42', '2023-02-08 19:52:45');
+INSERT INTO `barangayofficials` VALUES (9, 9, NULL, 'Sanguniang Kabataan', '2018-06-30', NULL, '2023-02-08 19:53:12', '2023-02-08 19:53:16');
+INSERT INTO `barangayofficials` VALUES (10, 23, NULL, 'Secretary', '2018-06-30', NULL, '2023-02-08 19:54:47', '2023-02-08 19:54:49');
+INSERT INTO `barangayofficials` VALUES (12, 4, NULL, 'Treasurer', '2018-06-30', NULL, '2023-02-08 19:54:04', '2023-02-08 19:54:08');
+INSERT INTO `barangayofficials` VALUES (14, 5, 'Waelchi, Samara Jacobson', 'Treasurer', '2023-02-16', NULL, '2023-02-16 19:44:41', '2023-02-16 19:44:41');
+INSERT INTO `barangayofficials` VALUES (15, 6, 'Zulauf, Vella Romaguera', 'Secretary', '2023-02-15', NULL, '2023-02-16 19:59:05', '2023-02-16 19:59:05');
+INSERT INTO `barangayofficials` VALUES (16, 33, 'Feest, Noemy Grady', 'SK Chairman', '2023-02-12', NULL, '2023-02-16 20:04:43', '2023-02-16 20:04:43');
 
 -- ----------------------------
 -- Table structure for failed_jobs
@@ -73,6 +77,7 @@ CREATE TABLE `failed_jobs`  (
 DROP TABLE IF EXISTS `households`;
 CREATE TABLE `households`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `household_head` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `province` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `barangay` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -83,26 +88,78 @@ CREATE TABLE `households`  (
   `water_source` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `lighting_source` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `toilet_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_by` bigint(20) NULL DEFAULT NULL,
+  `last_update_by` bigint(20) NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of households
 -- ----------------------------
-INSERT INTO `households` VALUES (1, 'NCR', 'Kodego', 'SP404', 5, '2494 Bogisich Route', 'Owned', 'Concrete', 'Deep Well', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (2, 'NCR', 'Kodego', 'SP404', 3, '8677 Bahringer Dale Suite 785', 'Leased', 'Concrete', 'Deep Well', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (3, 'NCR', 'Kodego', 'SP404', 2, '86887 Isac Ford', 'Leased', 'Light Materials', 'Faucet', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (4, 'NCR', 'Kodego', 'SP404', 4, '6667 Frederick Villages', 'Leased', 'Concrete', 'Deep Well', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (5, 'NCR', 'Kodego', 'SP404', 6, '81435 Bria Common', 'Leased', 'Light Materials', 'Deep Well', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (6, 'NCR', 'Kodego', 'SP404', 3, '60535 Beahan Street Apt. 472', 'Rented', 'Light Materials', 'Faucet', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (7, 'NCR', 'Kodego', 'SP404', 7, '197 Torrance Rest', 'Owned', 'Concrete', 'Deep Well', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (8, 'NCR', 'Kodego', 'SP404', 1, '87927 O\'Reilly Forest Apt. 782', 'Rented', 'Light Materials', 'Deep Well', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (9, 'NCR', 'Kodego', 'SP404', 7, '2167 Koepp Parkway Suite 781', 'Leased', 'Light Materials', 'Faucet', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (10, 'NCR', 'Kodego', 'SP404', 2, '58404 Sadie Court Suite 203', 'Rented', 'Light Materials', 'Deep Well', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (11, 'NCR', 'Kodego', 'SP404', 1, '546 Tiara Curve', 'Owned', 'Light Materials', 'Deep Well', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `households` VALUES (12, 'NCR', 'Kodego', 'SP404', 2, '46656 Roob Way Suite 586', 'Rented', 'Light Materials', 'Faucet', 'Electric', 'Water Sealed', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (1, 'Haley, Nicole Rohan', 'NCR', 'Kodego', 'SP404', 5, '2494 Bogisich Rte', 'Owned', 'Concrete', 'Deep Well', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (2, 'Nader, Nettie Kautzer', 'NCR', 'Kodego', 'SP404', 3, '8677 Bahringer Dale Suite 785', 'Leased', 'Concrete', 'Deep Well', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (3, 'Blanda, Leola Gulgowski', 'NCR', 'Kodego', 'SP404', 2, '86887 Isac Ford', 'Leased', 'Light Materials', 'Faucet', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (4, 'Waelchi, Samara Jacobson', 'NCR', 'Kodego', 'SP404', 4, '6667 Frederick Villages', 'Leased', 'Concrete', 'Deep Well', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (5, 'Thiel, Sofia Huel', 'NCR', 'Kodego', 'SP404', 6, '81435 Bria Common', 'Leased', 'Light Materials', 'Deep Well', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (6, 'Orn, Bridie Rohan', 'NCR', 'Kodego', 'SP404', 3, '60535 Beahan Street Apt. 472', 'Rented', 'Light Materials', 'Faucet', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (7, 'Kutch, Eriberto Lueilwitz', 'NCR', 'Kodego', 'SP404', 7, '197 Torrance Rest', 'Owned', 'Concrete', 'Deep Well', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (8, 'Kunde, Blanche Hauck', 'NCR', 'Kodego', 'SP404', 1, '87927 O\'Reilly Forest Apt. 782', 'Rented', 'Light Materials', 'Deep Well', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (9, 'Langosh, Jaunita Davis', 'NCR', 'Kodego', 'SP404', 7, '2167 Koepp Parkway Suite 781', 'Leased', 'Light Materials', 'Faucet', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (10, 'Davis, Vinnie Weissnat', 'NCR', 'Kodego', 'SP404', 2, '58404 Sadie Court Suite 203', 'Rented', 'Light Materials', 'Deep Well', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (11, 'Rogahn, Keyon Sanford', 'NCR', 'Kodego', 'SP404', 1, '546 Tiara Curve', 'Owned', 'Light Materials', 'Deep Well', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `households` VALUES (12, 'Bode, Aurelia Jacobson', 'NCR', 'Kodego', 'SP404', 2, '46656 Roob Way Suite 586', 'Rented', 'Light Materials', 'Faucet', 'Electric', 'Water Sealed', 2, 2, '2023-02-08 09:55:43', '2023-02-15 01:33:17');
+
+-- ----------------------------
+-- Table structure for logs
+-- ----------------------------
+DROP TABLE IF EXISTS `logs`;
+CREATE TABLE `logs`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `action` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `by_userId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `by_userName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `receiver_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `receiver_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of logs
+-- ----------------------------
+INSERT INTO `logs` VALUES (0, 'created', '2', 'Official', 'user profile', 'Ammos', '2023-02-15 20:56:36', '2023-02-15 20:56:36');
+INSERT INTO `logs` VALUES (1, 'created', '2', 'Official', 'user profile', 'Ammos', '2023-02-15 20:44:50', '2023-02-15 20:44:50');
+INSERT INTO `logs` VALUES (2, 'updated', '2', 'Official', 'user profile', 'Ammos', '2023-02-15 20:45:54', '2023-02-15 20:45:54');
+INSERT INTO `logs` VALUES (3, 'deleted', '2', 'Official', 'user profile', 'Ammos', '2023-02-15 20:46:27', '2023-02-15 20:46:27');
+INSERT INTO `logs` VALUES (5, 'updated', '2', 'Official', 'user profile', 'Ammos', '2023-02-15 20:56:56', '2023-02-15 20:56:56');
+INSERT INTO `logs` VALUES (6, 'deleted', '2', 'Official', 'user profile', 'Ammos', '2023-02-15 20:57:09', '2023-02-15 20:57:09');
+INSERT INTO `logs` VALUES (7, 'created', '2', 'Official', 'user profile', 'Ammos', '2023-02-15 21:03:55', '2023-02-15 21:03:55');
+INSERT INTO `logs` VALUES (8, 'updated', '2', 'Official', 'user profile', 'Ammos', '2023-02-15 21:04:22', '2023-02-15 21:04:22');
+INSERT INTO `logs` VALUES (9, 'updated', '2', 'Official', 'user password', 'Ammos', '2023-02-15 21:04:44', '2023-02-15 21:04:44');
+INSERT INTO `logs` VALUES (10, 'deleted', '2', 'Official', 'user profile', 'Ammos', '2023-02-15 21:05:16', '2023-02-15 21:05:16');
+INSERT INTO `logs` VALUES (11, 'created', '2', 'Official', 'household', 'Doe, John Miller', '2023-02-15 21:10:59', '2023-02-15 21:10:59');
+INSERT INTO `logs` VALUES (12, 'updated', '2', 'Official', 'household', '33', '2023-02-15 21:11:41', '2023-02-15 21:11:41');
+INSERT INTO `logs` VALUES (13, 'updated', '2', 'Official', 'household', 'Doe, John Miller', '2023-02-15 21:12:51', '2023-02-15 21:12:51');
+INSERT INTO `logs` VALUES (14, 'deleted', '2', 'Official', 'household', 'Doe, John Miller', '2023-02-15 21:14:18', '2023-02-15 21:14:18');
+INSERT INTO `logs` VALUES (15, 'deleted', '2', 'Official', 'household', 'Dela Cruz, Juan Ponce', '2023-02-15 21:14:23', '2023-02-15 21:14:23');
+INSERT INTO `logs` VALUES (16, 'created', '1', 'Admin User', 'user profile', 'trial', '2023-02-15 21:51:39', '2023-02-15 21:51:39');
+INSERT INTO `logs` VALUES (17, 'created', '2', 'Official', 'user profile', 'trial2', '2023-02-15 22:03:59', '2023-02-15 22:03:59');
+INSERT INTO `logs` VALUES (18, 'deleted', '2', 'Official', 'user profile', 'trial2', '2023-02-15 22:04:05', '2023-02-15 22:04:05');
+INSERT INTO `logs` VALUES (19, 'deleted', '2', 'Official', 'user profile', 'trial', '2023-02-15 22:04:08', '2023-02-15 22:04:08');
+INSERT INTO `logs` VALUES (20, 'created', '2', 'Official', 'user profile', 'tria4', '2023-02-15 23:42:04', '2023-02-15 23:42:04');
+INSERT INTO `logs` VALUES (21, 'updated', '2', 'Official', 'user profile', 'tria4', '2023-02-15 23:42:49', '2023-02-15 23:42:49');
+INSERT INTO `logs` VALUES (22, 'updated', '2', 'Official', 'user password', 'trial4', '2023-02-15 23:43:43', '2023-02-15 23:43:43');
+INSERT INTO `logs` VALUES (23, 'deleted', '2', 'Official', 'user profile', 'trial4', '2023-02-15 23:44:04', '2023-02-15 23:44:04');
+INSERT INTO `logs` VALUES (24, 'created', '1', 'Admin User', 'user profile', 'trial', '2023-02-15 23:53:19', '2023-02-15 23:53:19');
+INSERT INTO `logs` VALUES (25, 'updated', '1', 'Admin User', 'user profile', 'trial', '2023-02-15 23:55:50', '2023-02-15 23:55:50');
+INSERT INTO `logs` VALUES (26, 'created', '2', 'Official', 'barangay official profile', '5', '2023-02-16 19:44:41', '2023-02-16 19:44:41');
+INSERT INTO `logs` VALUES (27, 'created', '2', 'Official', 'barangay official profile', '6', '2023-02-16 19:59:05', '2023-02-16 19:59:05');
+INSERT INTO `logs` VALUES (28, 'created', '2', 'Official', 'barangay official profile', 'Feest, Noemy Grady', '2023-02-16 20:04:43', '2023-02-16 20:04:43');
+INSERT INTO `logs` VALUES (29, 'created', '1', 'Admin User', 'user profile', 'Julius Marc Agustin', '2023-02-17 08:22:21', '2023-02-17 08:22:21');
+INSERT INTO `logs` VALUES (30, 'updated', '1', 'Admin User', 'user password', 'Julius Marc Agustin', '2023-02-17 08:22:42', '2023-02-17 08:22:42');
 
 -- ----------------------------
 -- Table structure for migrations
@@ -113,7 +170,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -128,6 +185,8 @@ INSERT INTO `migrations` VALUES (7, '2023_02_08_022634_create_barangay_officials
 INSERT INTO `migrations` VALUES (8, '2023_02_08_022734_create_zones_table', 1);
 INSERT INTO `migrations` VALUES (9, '2023_02_08_022832_create_news_and_updates_table', 1);
 INSERT INTO `migrations` VALUES (10, '2023_02_08_022905_create_projects_table', 1);
+INSERT INTO `migrations` VALUES (11, '2018_01_01_100000_create_ph_address_tables', 2);
+INSERT INTO `migrations` VALUES (12, '2023_02_15_200143_create_logs_table', 3);
 
 -- ----------------------------
 -- Table structure for newsandupdates
@@ -164,6 +223,8 @@ CREATE TABLE `password_resets`  (
 -- ----------------------------
 -- Records of password_resets
 -- ----------------------------
+INSERT INTO `password_resets` VALUES ('admin@gmail.com', '$2y$10$smeVf/ZgtHJXByem77ml8.Sc1sTGovbrJ8FWcYN2Fo6k6chjH8L9a', '2023-02-10 00:13:25');
+INSERT INTO `password_resets` VALUES ('user@gmail.com', '$2y$10$A5C6FWoUXQPidNrrcoJTquOBuZyd6dadQ9wVsZ0GAUFhk55t5hBO.', '2023-02-10 05:01:14');
 
 -- ----------------------------
 -- Table structure for personal_access_tokens
@@ -236,7 +297,7 @@ CREATE TABLE `residents`  (
   `employment_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `monthly_income` bigint(20) NOT NULL,
   `educational_attainment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `former_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mailing_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `household_id` bigint(20) UNSIGNED NOT NULL,
   `relation_to_head` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED NULL DEFAULT NULL,
@@ -245,51 +306,77 @@ CREATE TABLE `residents`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of residents
 -- ----------------------------
-INSERT INTO `residents` VALUES (1, 'Murray', 'Emiliano', 'Borer', '', '2019-06-17', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'B', 1, 'Law Clerk', 'Regular', 14300, 'Highschool Graduate', '', 4, 'Son', 3, 'user@gmail.com', '331-272-8021', '2023-02-08 09:55:42', '2023-02-08 09:55:42');
-INSERT INTO `residents` VALUES (2, 'Stehr', 'Emmalee', 'Wilderman', '', '1982-04-23', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 1, 'Freight Agent', 'Regular', 9200, 'College Undergraduate', '', 1, 'Daughter', NULL, 'dsenger@example.org', '913-932-8228', '2023-02-08 09:55:42', '2023-02-08 09:55:42');
-INSERT INTO `residents` VALUES (3, 'Champlin', 'Devante', 'Kshlerin', '', '1995-07-03', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Separated', 'A', 1, 'Surveyor', 'Contractual', 1100, 'Highschool Graduate', '', 4, 'Wife', NULL, 'blick.aaliyah@example.com', '240-537-4527', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (4, 'Wilkinson', 'Albert', 'Keebler', '', '1996-11-10', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'A', 0, 'Statistical Assistant', 'Unemployed', 27000, 'College Undergraduate', '', 9, 'Daughter', NULL, 'sarah27@example.net', '678-566-3676', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (5, 'Waelchi', 'Samara', 'Jacobson', '', '2001-12-03', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'B', 0, 'Floor Finisher', 'Contractual', 19200, 'College Undergraduate', '', 4, 'Head', NULL, 'gconsidine@example.org', '+1-435-623-7028', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (6, 'Zulauf', 'Vella', 'Romaguera', '', '2013-01-13', 'SP404, Kodego, NCR', 'female', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Widowed', 'O', 1, 'Housekeeping Supervisor', 'Contractual', 28600, 'Highschool Graduate', '', 12, 'Wife', NULL, 'gaylord.gertrude@example.com', '1-702-354-6637', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (7, 'Volkman', 'Jameson', 'Sawayn', '', '1995-02-11', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'O', 0, 'Social Media Marketing Manager', 'Unemployed', 21100, 'College Graduate', '', 9, 'Son', NULL, 'dlangosh@example.com', '+16612954926', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (8, 'Ankunding', 'Chauncey', 'Deckow', '', '2005-02-23', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'O', 0, 'Musician', 'Regular', 9800, 'College Graduate', '', 8, 'Wife', NULL, 'alessandro65@example.com', '(248) 455-1771', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (9, 'Langosh', 'Jaunita', 'Davis', '', '2006-09-27', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'O', 1, 'Personnel Recruiter', 'Contractual', 6100, 'Highschool Graduate', '', 9, 'Head', NULL, 'donald.price@example.net', '(321) 288-5461', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (10, 'Kling', 'Angelica', 'Graham', '', '1984-09-27', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'O', 0, 'Wholesale Buyer', 'Contractual', 13000, 'College Graduate', '', 10, 'Daughter', NULL, 'ucasper@example.com', '+1-414-627-0213', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (11, 'Nader', 'Nettie', 'Kautzer', '', '2004-12-16', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Widowed', 'A', 1, 'Legal Support Worker', 'Unemployed', 27200, 'College Graduate', '', 2, 'Head', NULL, 'jacquelyn54@example.net', '(716) 844-8198', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (12, 'Marvin', 'Kali', 'Pollich', '', '1990-01-10', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'AB', 1, 'Extruding Machine Operator', 'Regular', 13700, 'Elementary Graduate', '', 3, 'Son', NULL, 'baumbach.gordon@example.org', '352.263.5626', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (13, 'Batz', 'Agustina', 'Nitzsche', '', '1974-07-01', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'AB', 1, 'Production Helper', 'Contractual', 28500, 'Elementary Graduate', '', 2, 'Wife', NULL, 'willie06@example.com', '(567) 532-2404', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (14, 'Green', 'Destini', 'Parker', '', '2008-05-21', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'O', 1, 'Rail Yard Engineer', 'Unemployed', 20600, 'Elementary Graduate', '', 12, 'Wife', NULL, 'michele45@example.net', '1-680-352-6486', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (15, 'Denesik', 'Amanda', 'Pacocha', '', '1977-01-28', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Electrical Sales Representative', 'Unemployed', 16900, 'College Graduate', '', 9, 'Son', NULL, 'jweimann@example.net', '+1-404-523-1436', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (16, 'Haley', 'Nicole', 'Rohan', '', '2019-09-04', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'A', 1, 'Respiratory Therapy Technician', 'Contractual', 6700, 'Elementary Graduate', '', 1, 'Head', NULL, 'ggoyette@example.com', '714.738.3192', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (17, 'Orn', 'Bridie', 'Rohan', '', '1996-07-15', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Driver-Sales Worker', 'Unemployed', 26000, 'College Graduate', '', 6, 'Head', NULL, 'wilhelm08@example.net', '+1-302-793-3208', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (18, 'Jacobs', 'Kurtis', 'Dietrich', '', '2010-04-18', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'A', 1, 'Sawing Machine Tool Setter', 'Unemployed', 28800, 'Elementary Graduate', '', 9, 'Son', NULL, 'oharber@example.org', '336-885-9571', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (19, 'Flatley', 'Dane', 'Bogisich', '', '1991-02-26', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'B', 0, 'Tile Setter OR Marble Setter', 'Contractual', 10700, 'College Undergraduate', '', 6, 'Wife', NULL, 'delfina05@example.net', '678-249-8410', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (20, 'Reilly', 'Avis', 'Padberg', '', '2000-01-17', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'B', 0, 'Refractory Materials Repairer', 'Unemployed', 4100, 'College Undergraduate', '', 12, 'Daughter', NULL, 'marlon.halvorson@example.com', '+1.740.600.8872', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (21, 'Wisoky', 'Jarod', 'Cruickshank', '', '2016-10-17', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'AB', 1, 'Security Systems Installer OR Fire Alarm Systems Installer', 'Unemployed', 15400, 'College Undergraduate', '', 2, 'Son', NULL, 'jessika.green@example.net', '779.960.4933', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (22, 'Skiles', 'Elmira', 'Hand', '', '2009-06-07', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'O', 1, 'Marine Oiler', 'Contractual', 24500, 'Highschool Graduate', '', 12, 'Wife', NULL, 'asa76@example.net', '757-286-7211', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (23, 'Rogahn', 'Keyon', 'Sanford', '', '2004-01-13', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'A', 1, 'Motorcycle Mechanic', 'Contractual', 9600, 'College Undergraduate', '', 11, 'Head', 2, 'justus.bailey@example.net', '+1-801-529-9728', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (24, 'Thiel', 'Sofia', 'Huel', '', '2013-12-31', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'B', 1, 'Nursery Manager', 'Unemployed', 6000, 'Highschool Graduate', '', 5, 'Head', NULL, 'mcollier@example.com', '+12066319224', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (25, 'Boyer', 'Benny', 'Feest', '', '1988-10-05', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Environmental Scientist', 'Contractual', 19600, 'Elementary Graduate', '', 8, 'Daughter', 1, 'admin@gmail.com', '1-914-837-1996', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (26, 'Cole', 'Ivory', 'Schowalter', '', '1995-04-16', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 1, 'Jewelry Model OR Mold Makers', 'Regular', 27700, 'Elementary Graduate', '', 6, 'Son', NULL, 'walker47@example.com', '+19514702047', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (27, 'Reinger', 'Granville', 'Smith', '', '1989-11-05', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'B', 1, 'Office and Administrative Support Worker', 'Unemployed', 11000, 'Highschool Graduate', '', 1, 'Wife', NULL, 'eraynor@example.net', '+1-573-527-9786', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (28, 'Hoppe', 'Zoie', 'Schaden', '', '1981-09-25', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Product Safety Engineer', 'Unemployed', 19100, 'Elementary Graduate', '', 3, 'Son', NULL, 'oliver46@example.org', '347-378-1601', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (29, 'Davis', 'Vinnie', 'Weissnat', '', '2003-07-16', 'SP404, Kodego, NCR', 'female', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Single', 'A', 1, 'Diagnostic Medical Sonographer', 'Contractual', 6000, 'Elementary Graduate', '', 10, 'Head', NULL, 'hintz.baron@example.com', '629-758-9581', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (30, 'Blanda', 'Leola', 'Gulgowski', '', '2019-11-14', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Weapons Specialists', 'Regular', 6400, 'Highschool Graduate', '', 3, 'Head', NULL, 'ohamill@example.net', '234-367-1592', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (31, 'Torphy', 'Maximillia', 'Sauer', '', '1977-03-02', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'O', 1, 'Agricultural Technician', 'Contractual', 16700, 'Highschool Graduate', '', 6, 'Son', NULL, 'marcella.gusikowski@example.com', '240-928-1446', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (32, 'Hettinger', 'Dario', 'Heidenreich', '', '1994-07-27', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Single', 'A', 1, 'Postal Service Mail Carrier', 'Regular', 26900, 'College Undergraduate', '', 5, 'Daughter', NULL, 'maryam86@example.org', '1-479-988-3937', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (33, 'Feest', 'Noemy', 'Grady', '', '2013-06-07', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'AB', 0, 'Public Relations Manager', 'Regular', 6900, 'Elementary Graduate', '', 11, 'Son', NULL, 'lauren61@example.net', '743.874.2560', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (34, 'Stiedemann', 'Vito', 'Miller', '', '2018-12-09', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Single', 'B', 1, 'Rail Car Repairer', 'Regular', 15000, 'Elementary Graduate', '', 4, 'Daughter', NULL, 'reichel.roslyn@example.org', '534.509.0335', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (35, 'Bradtke', 'Darby', 'Larson', '', '1994-09-05', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'AB', 1, 'Pressing Machine Operator', 'Unemployed', 24800, 'College Undergraduate', '', 10, 'Daughter', NULL, 'elsie86@example.com', '646-810-6076', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (36, 'Bode', 'Aurelia', 'Jacobson', '', '2004-11-03', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'O', 0, 'Sales Manager', 'Contractual', 17700, 'Highschool Graduate', '', 12, 'Head', NULL, 'bednar.branson@example.net', '+1 (631) 259-4030', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (37, 'Wunsch', 'Hollie', 'Walker', '', '1992-11-08', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'AB', 0, 'Electro-Mechanical Technician', 'Regular', 22800, 'Elementary Graduate', '', 1, 'Wife', NULL, 'devan06@example.org', '+1 (508) 607-5490', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (38, 'Kunde', 'Blanche', 'Hauck', '', '1993-12-03', 'SP404, Kodego, NCR', 'female', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Separated', 'AB', 0, 'Photographer', 'Contractual', 10000, 'Elementary Graduate', '', 8, 'Head', NULL, 'hackett.easton@example.net', '484.943.4966', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (39, 'Kutch', 'Eriberto', 'Lueilwitz', '', '1978-01-22', 'SP404, Kodego, NCR', 'female', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Widowed', 'B', 1, 'Logistician', 'Unemployed', 21500, 'Elementary Graduate', '', 6, 'Daughter', NULL, 'baumbach.lenore@example.com', '+1 (848) 663-8338', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
-INSERT INTO `residents` VALUES (40, 'Leffler', 'Guadalupe', 'Jacobi', '', '2019-04-10', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Single', 'B', 1, 'Pantograph Engraver', 'Unemployed', 17800, 'Highschool Graduate', '', 5, 'Daughter', NULL, 'jacquelyn.rodriguez@example.org', '1-270-477-3400', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (1, 'Murray', 'Emiliano', 'Borer', '', '2019-06-17', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'B', 1, 'Law Clerk', 'Regular', 14300, 'Highschool Graduate', '', 4, 'Son', 2, 'user@gmail.com', '331-272-8021', '2023-02-08 09:55:42', '2023-02-08 09:55:42');
+INSERT INTO `residents` VALUES (2, 'Stehr', 'Emmalee', 'Wilderman', '', '1982-04-23', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 1, 'Freight Agent', 'Regular', 9200, 'College Undergraduate', '', 1, 'Daughter', 2, 'dsenger@example.org', '913-932-8228', '2023-02-08 09:55:42', '2023-02-08 09:55:42');
+INSERT INTO `residents` VALUES (3, 'Champlin', 'Devante', 'Kshlerin', '', '1995-07-03', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Separated', 'A', 1, 'Surveyor', 'Contractual', 1100, 'Highschool Graduate', '', 4, 'Wife', 2, 'blick.aaliyah@example.com', '240-537-4527', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (4, 'Wilkinson', 'Albert', 'Keebler', '', '1996-11-10', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'A', 0, 'Statistical Assistant', 'Unemployed', 27000, 'College Undergraduate', '', 9, 'Daughter', 2, 'sarah27@example.net', '678-566-3676', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (5, 'Waelchi', 'Samara', 'Jacobson', '', '2001-12-03', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'B', 0, 'Floor Finisher', 'Contractual', 19200, 'College Undergraduate', '', 4, 'Head', 2, 'gconsidine@example.org', '+1-435-623-7028', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (6, 'Zulauf', 'Vella', 'Romaguera', '', '2013-01-13', 'SP404, Kodego, NCR', 'female', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Widowed', 'O', 1, 'Housekeeping Supervisor', 'Contractual', 28600, 'Highschool Graduate', '', 12, 'Wife', 2, 'gaylord.gertrude@example.com', '1-702-354-6637', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (7, 'Volkman', 'Jameson', 'Sawayn', '', '1995-02-11', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'O', 0, 'Social Media Marketing Manager', 'Unemployed', 21100, 'College Graduate', '', 9, 'Son', 2, 'dlangosh@example.com', '+16612954926', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (8, 'Ankunding', 'Chauncey', 'Deckow', '', '2005-02-23', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'O', 0, 'Musician', 'Regular', 9800, 'College Graduate', '', 8, 'Wife', 2, 'alessandro65@example.com', '(248) 455-1771', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (9, 'Langosh', 'Jaunita', 'Davis', '', '2006-09-27', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'O', 1, 'Personnel Recruiter', 'Contractual', 6100, 'Highschool Graduate', '', 9, 'Head', 2, 'donald.price@example.net', '(321) 288-5461', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (10, 'Kling', 'Angelica', 'Graham', '', '1984-09-27', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'O', 0, 'Wholesale Buyer', 'Contractual', 13000, 'College Graduate', '', 10, 'Daughter', 2, 'ucasper@example.com', '+1-414-627-0213', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (11, 'Nader', 'Nettie', 'Kautzer', '', '2004-12-16', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Widowed', 'A', 1, 'Legal Support Worker', 'Unemployed', 27200, 'College Graduate', '', 2, 'Head', 2, 'jacquelyn54@example.net', '(716) 844-8198', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (12, 'Marvin', 'Kali', 'Pollich', '', '1990-01-10', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'AB', 1, 'Extruding Machine Operator', 'Regular', 13700, 'Elementary Graduate', '', 3, 'Son', 2, 'baumbach.gordon@example.org', '352.263.5626', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (13, 'Batz', 'Agustina', 'Nitzsche', '', '1974-07-01', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Married', 'AB', 1, 'Production Helper', 'Contractual', 28500, 'Elementary Graduate', '', 2, 'Wife', 2, 'willie06@example.com', '(567) 532-2404', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (14, 'Green', 'Destini', 'Parker', '', '2008-05-21', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'O', 1, 'Rail Yard Engineer', 'Unemployed', 20600, 'Elementary Graduate', '', 7, 'Wife', 2, 'michele45@example.net', '1-680-352-6486', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (15, 'Denesik', 'Amanda', 'Pacocha', '', '1977-01-28', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Electrical Sales Representative', 'Unemployed', 16900, 'College Graduate', '', 9, 'Son', 2, 'jweimann@example.net', '+1-404-523-1436', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (16, 'Haley', 'Nicole', 'Rohan', '', '2019-09-04', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'A', 1, 'Respiratory Therapy Technician', 'Contractual', 6700, 'Elementary Graduate', '', 1, 'Head', 2, 'ggoyette@example.com', '714.738.3192', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (17, 'Orn', 'Bridie', 'Rohan', '', '1996-07-15', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Driver-Sales Worker', 'Unemployed', 26000, 'College Graduate', '', 6, 'Head', 2, 'wilhelm08@example.net', '+1-302-793-3208', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (18, 'Jacobs', 'Kurtis', 'Dietrich', '', '2010-04-18', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'A', 1, 'Sawing Machine Tool Setter', 'Unemployed', 28800, 'Elementary Graduate', '', 9, 'Son', 2, 'oharber@example.org', '336-885-9571', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (19, 'Flatley', 'Dane', 'Bogisich', '', '1991-02-26', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'B', 0, 'Tile Setter OR Marble Setter', 'Contractual', 10700, 'College Undergraduate', '', 6, 'Wife', 2, 'delfina05@example.net', '678-249-8410', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (20, 'Reilly', 'Avis', 'Padberg', '', '2000-01-17', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'B', 0, 'Refractory Materials Repairer', 'Unemployed', 4100, 'College Undergraduate', '', 12, 'Daughter', 2, 'marlon.halvorson@example.com', '+1.740.600.8872', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (21, 'Wisoky', 'Jarod', 'Cruickshank', '', '2016-10-17', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'AB', 1, 'Security Systems Installer OR Fire Alarm Systems Installer', 'Unemployed', 15400, 'College Undergraduate', '', 2, 'Son', 2, 'jessika.green@example.net', '779.960.4933', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (22, 'Skiles', 'Elmira', 'Hand', '', '2009-06-07', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'O', 1, 'Marine Oiler', 'Contractual', 24500, 'Highschool Graduate', '', 7, 'Son', 2, 'asa76@example.net', '757-286-7211', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (23, 'Rogahn', 'Keyon', 'Sanford', '', '2004-01-13', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'A', 1, 'Motorcycle Mechanic', 'Contractual', 9600, 'College Undergraduate', '', 11, 'Head', 2, 'official@gmail.com', '+1-801-529-9728', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (24, 'Thiel', 'Sofia', 'Huel', '', '2013-12-31', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'B', 1, 'Nursery Manager', 'Unemployed', 6000, 'Highschool Graduate', '', 5, 'Head', 2, 'mcollier@example.com', '+12066319224', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (25, 'Boyer', 'Benny', 'Feest', '', '1988-10-05', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Environmental Scientist', 'Contractual', 19600, 'Elementary Graduate', '', 8, 'Daughter', 2, 'admin@gmail.com', '1-914-837-1996', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (26, 'Cole', 'Ivory', 'Schowalter', '', '1995-04-16', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 1, 'Jewelry Model OR Mold Makers', 'Regular', 27700, 'Elementary Graduate', '', 6, 'Son', 2, 'walker47@example.com', '+19514702047', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (27, 'Reinger', 'Granville', 'Smith', '', '1989-11-05', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Single', 'B', 1, 'Office and Administrative Support Worker', 'Unemployed', 11000, 'Highschool Graduate', '', 1, 'Wife', 2, 'eraynor@example.net', '+1-573-527-9786', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (28, 'Hoppe', 'Zoie', 'Schaden', '', '1981-09-25', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Product Safety Engineer', 'Unemployed', 19100, 'Elementary Graduate', '', 3, 'Son', 2, 'oliver46@example.org', '347-378-1601', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (29, 'Davis', 'Vinnie', 'Weissnat', '', '2003-07-16', 'SP404, Kodego, NCR', 'female', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Single', 'A', 1, 'Diagnostic Medical Sonographer', 'Contractual', 6000, 'Elementary Graduate', '', 10, 'Head', 2, 'hintz.baron@example.com', '629-758-9581', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (30, 'Blanda', 'Leola', 'Gulgowski', '', '2019-11-14', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'O', 0, 'Weapons Specialists', 'Regular', 6400, 'Highschool Graduate', '', 3, 'Head', 2, 'ohamill@example.net', '234-367-1592', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (31, 'Torphy', 'Maximillia', 'Sauer', '', '1977-03-02', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'O', 1, 'Agricultural Technician', 'Contractual', 16700, 'Highschool Graduate', '', 6, 'Son', 2, 'marcella.gusikowski@example.com', '240-928-1446', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (32, 'Hettinger', 'Dario', 'Heidenreich', '', '1994-07-27', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Single', 'A', 1, 'Postal Service Mail Carrier', 'Regular', 26900, 'College Undergraduate', '', 5, 'Daughter', 2, 'maryam86@example.org', '1-479-988-3937', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (33, 'Feest', 'Noemy', 'Grady', '', '2013-06-07', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'AB', 0, 'Public Relations Manager', 'Regular', 6900, 'Elementary Graduate', '', 11, 'Son', 2, 'lauren61@example.net', '743.874.2560', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (34, 'Stiedemann', 'Vito', 'Miller', '', '2018-12-09', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Single', 'B', 1, 'Rail Car Repairer', 'Regular', 15000, 'Elementary Graduate', '', 4, 'Daughter', 2, 'reichel.roslyn@example.org', '534.509.0335', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (35, 'Bradtke', 'Darby', 'Larson', '', '1994-09-05', 'SP404, Kodego, NCR', 'male', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'AB', 1, 'Pressing Machine Operator', 'Unemployed', 24800, 'College Undergraduate', '', 10, 'Daughter', 2, 'elsie86@example.com', '646-810-6076', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (36, 'Bode', 'Aurelia', 'Jacobson', '', '2004-11-03', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Widowed', 'O', 0, 'Sales Manager', 'Contractual', 17700, 'Highschool Graduate', '', 12, 'Head', 2, 'bednar.branson@example.net', '+1 (631) 259-4030', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (37, 'Wunsch', 'Hollie', 'Walker', '', '1992-11-08', 'SP404, Kodego, NCR', 'female', 'Roman Catholic', 'Filipino', 'Filipino', 'Separated', 'AB', 0, 'Electro-Mechanical Technician', 'Regular', 22800, 'Elementary Graduate', '', 1, 'Wife', 2, 'devan06@example.org', '+1 (508) 607-5490', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (38, 'Kunde', 'Blanche', 'Hauck', '', '1993-12-03', 'SP404, Kodego, NCR', 'female', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Separated', 'AB', 0, 'Photographer', 'Contractual', 10000, 'Elementary Graduate', '', 8, 'Head', 2, 'hackett.easton@example.net', '484.943.4966', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (39, 'Kutch', 'Eriberto', 'Lueilwitz', '', '1978-01-22', 'SP404, Kodego, NCR', 'female', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Widowed', 'B', 1, 'Logistician', 'Unemployed', 21500, 'Elementary Graduate', '', 7, 'Head', 2, 'baumbach.lenore@example.com', '+1 (848) 663-8338', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+INSERT INTO `residents` VALUES (40, 'Leffler', 'Guadalupe', 'Jacobi', '', '2019-04-10', 'SP404, Kodego, NCR', 'male', 'Iglesia Ni Cristo', 'Filipino', 'Filipino', 'Single', 'B', 1, 'Pantograph Engraver', 'Unemployed', 17800, 'Highschool Graduate', '', 5, 'Daughter', 2, 'jacquelyn.rodriguez@example.org', '1-270-477-3400', '2023-02-08 09:55:43', '2023-02-08 09:55:43');
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` tinyint(4) NOT NULL DEFAULT 0,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `created_by` bigint(20) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES (1, 'Admin User', 'admin@gmail.com', NULL, '$2y$10$XQGReG5ut3I4O1ztvQXDVOggDt2RqI1av37TBm3wn6kWLjzMSj2n2', 2, NULL, NULL, '2023-02-08 09:55:42', '2023-02-08 09:55:42');
+INSERT INTO `user` VALUES (2, 'Official', 'Official@gmail.com', NULL, '$2y$10$NMmA9AWOT3ggtYfQ6OlXXOBTSy8lstAmzzQdxXmR5q0vUiw/6AJWK', 1, NULL, NULL, '2023-02-08 09:55:42', '2023-02-11 01:38:51');
+INSERT INTO `user` VALUES (3, 'User', 'user@gmail.com', NULL, '$2y$10$xj.cklkuMzlbpMiqIzgo9OkEV93GXEfk.VPgUyy8httS62/aYsfJq', 0, NULL, NULL, '2023-02-08 09:55:42', '2023-02-11 01:21:37');
 
 -- ----------------------------
 -- Table structure for users
@@ -303,18 +390,21 @@ CREATE TABLE `users`  (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` tinyint(4) NOT NULL DEFAULT 0,
   `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `created_by` bigint(20) NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'Admin User', 'admin@gmail.com', NULL, '$2y$10$XQGReG5ut3I4O1ztvQXDVOggDt2RqI1av37TBm3wn6kWLjzMSj2n2', 2, NULL, '2023-02-08 09:55:42', '2023-02-08 09:55:42');
-INSERT INTO `users` VALUES (2, 'Official User', 'Official@gmail.com', NULL, '$2y$10$aIAhb9TLM4wla./u.M077ud07BVvVpvmWvcPEVO8sYPdLop9LXRFu', 1, NULL, '2023-02-08 09:55:42', '2023-02-08 09:55:42');
-INSERT INTO `users` VALUES (3, 'User', 'user@gmail.com', NULL, '$2y$10$rCujrEv0c0tBcHkkSpDBb.07kBJSMhmKn0OQdpSPxR5yOXVZ9EwLW', 0, NULL, '2023-02-08 09:55:42', '2023-02-08 09:55:42');
+INSERT INTO `users` VALUES (1, 'Admin User', 'admin@gmail.com', NULL, '$2y$10$XQGReG5ut3I4O1ztvQXDVOggDt2RqI1av37TBm3wn6kWLjzMSj2n2', 2, NULL, NULL, '2023-02-08 09:55:42', '2023-02-08 09:55:42');
+INSERT INTO `users` VALUES (2, 'Official', 'Official@gmail.com', NULL, '$2y$10$0oW7nlBxQ2SBY5wfRU7ZpuIlDo2oAONsNG6g48ADWSZNANMTUcM.a', 1, NULL, NULL, '2023-02-08 09:55:42', '2023-02-15 09:37:10');
+INSERT INTO `users` VALUES (3, 'User', 'user@gmail.com', NULL, '$2y$10$xj.cklkuMzlbpMiqIzgo9OkEV93GXEfk.VPgUyy8httS62/aYsfJq', 0, NULL, NULL, '2023-02-08 09:55:42', '2023-02-11 01:21:37');
+INSERT INTO `users` VALUES (18, 'trial', 'sfadfa@afdfa.com', NULL, '$2y$10$oVCniKR058fQ6Gv0y4MA7O9Avs1V9PuFnvnrKkObM41FI6X/cX/Te', 2, NULL, NULL, '2023-02-15 23:53:19', '2023-02-15 23:55:50');
+INSERT INTO `users` VALUES (19, 'Julius Marc Agustin', 'juliusmarcagustin@gmail.com', NULL, '$2y$10$FPrPt9JW1W40AXoVl5R6/e.No3myClaod3xjMqOyQ7Rf0fJW.bHAe', 2, NULL, NULL, '2023-02-17 08:22:21', '2023-02-17 08:22:42');
 
 -- ----------------------------
 -- Table structure for zones

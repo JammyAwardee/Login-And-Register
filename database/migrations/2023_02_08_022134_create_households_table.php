@@ -26,8 +26,6 @@ return new class extends Migration
             $table->string('water_source');
             $table->string('lighting_source');
             $table->string('toilet_type');
-            $table->foreignId('created_by');
-            $table->foreignId('last_update_by');
             $table->timestamps();
         });
     }

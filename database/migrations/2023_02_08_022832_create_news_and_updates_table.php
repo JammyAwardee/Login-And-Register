@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('newsandupdates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->string('user_name');
             $table->string('title');
+            $table->string('category');
+            $table->string('image')->nullable();
             $table->longText('body');
             $table->timestamps();
         });

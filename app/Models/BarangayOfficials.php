@@ -14,6 +14,17 @@ class BarangayOfficials extends Model
 
     protected $fillable = ['resident_id', 'barangayofficial_name', 'role', 'term_start', 'term_end'];
 
+    public function scopeFilter($query, array $filters){
+        if ($filters['search'] ?? false) {
+            $query->where('barangayofficial_name', 'like', '%' . request('search') . '%')
+                ->orWhere('role', 'like', '%' . request('search') . '%')
+                ->orWhere('id', request('search'))
+                ->orWhere('term_start', 'like', '%' . request('search') . '%')
+                ->orWhere('term_end', 'like', '%' . request('search') . '%')
+                ;
+        }
+    }
+
     public function age()
     {
         return Carbon::parse($this->attributes['b_date'])->age;

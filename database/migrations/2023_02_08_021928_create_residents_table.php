@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('employment_status');
             $table->bigInteger('monthly_income');
             $table->string('educational_attainment');
-            $table->string('former_address');
+            $table->string('mailing_address');
             $table->foreignId('household_id');
             $table->string('relation_to_head');
             $table->foreignId('user_id');

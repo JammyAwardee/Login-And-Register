@@ -25,7 +25,7 @@
                         <a href="{{ url('/households') }}" class="block py-2 pl-3 text-gray-200 border-b border-gray-100 hover:text-amber-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Households</a>
                     </li>
                     <li>
-                        <a href="{{ url('/officials') }}" class="block py-2 pl-3 text-gray-200 border-b border-gray-100 hover:text-amber-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Officials</a></a>
+                        <a href="{{ url('/newsandupdates') }}" class="block py-2 pl-3 text-gray-200 border-b border-gray-100 hover:text-amber-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">News And Updates</a>
                     </li>
                     <li>
                         <a href="{{ url('/official/profile') }}" class="block py-2 pl-3 text-gray-200 border-b border-gray-100 hover:text-amber-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Profile</a></a>

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('barangayofficials', function (Blueprint $table) {
             $table->id();
             $table->foreignId('resident_id');
+            $table->string('barangayofficial_name');
             $table->string('role');
             $table->date('term_start');
             $table->date('term_end');

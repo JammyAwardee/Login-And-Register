@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangayOfficialsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HouseholdsController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\NewsandUpdatesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentsController;
 use App\Http\Controllers\UserController;
@@ -68,6 +69,26 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     
     Route::get('/logs', [LogController::class, 'index']);
 
+    Route::get('/officials', [BarangayOfficialsController::class, 'index'])->name('officials');
+
+    Route::post('/officials/search', [BarangayOfficialsController::class, 'search']);
+
+    Route::get('/officials/create', [BarangayOfficialsController::class, 'create']);
+
+    Route::post('/officials/store', [BarangayOfficialsController::class, 'store']);
+
+    Route::post('/officials/add-official-search', [BarangayOfficialsController::class, 'addofficialsearch']);
+
+    Route::post('/officials/createidhelper', [BarangayOfficialsController::class, 'createidhelper']);
+
+    Route::get('/officials/{official}/edit', [BarangayOfficialsController::class, 'edit']);
+
+    Route::put('/officials/{official}', [BarangayOfficialsController::class, 'update']);
+
+    Route::delete('/officials/{official}', [BarangayOfficialsController::class, 'destroy']);
+
+
+
 });
   
 /*------------------------------------------
@@ -99,17 +120,11 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
 
     Route::delete('/households/{household}', [HouseholdsController::class, 'destroy']);
 
-    Route::get('/officials', [BarangayOfficialsController::class, 'index'])->name('officials');
+    Route::get('/newsandupdates', [NewsandUpdatesController::class, 'index']);
 
-    Route::post('/officials/search', [BarangayOfficialsController::class, 'search']);
+    Route::get('/newsandupdates/create', [NewsandUpdatesController::class, 'create']);
 
-    Route::get('/officials/create', [BarangayOfficialsController::class, 'create']);
-
-    Route::post('/officials/store', [BarangayOfficialsController::class, 'store']);
-
-    Route::post('/officials/add-official-search', [BarangayOfficialsController::class, 'addofficialsearch']);
-
-    Route::post('/officials/createidhelper', [BarangayOfficialsController::class, 'createidhelper']);
+    Route::post('/newsandupdates/store', [NewsandUpdatesController::class, 'store']);
 
 });
 
