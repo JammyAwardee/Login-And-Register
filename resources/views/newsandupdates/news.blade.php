@@ -28,18 +28,19 @@
                       <div class="px-3 mb-20">
                         <h5 class="text-lg font-bold mb-3">{{$newsandupdate->title}}</h5>
                         <div class="mb-3  text-gray-900 font-medium text-xs flex items-center justify-center uppercase">
-                        <h5 class="bg-yellow-600 text-white px-3 py-1 rounded-2xl">                 {{$newsandupdate->category}}</h5>  
-                        </div>
+                        <h5 class="bg-yellow-600 text-white px-3 py-1 rounded-2xl">{{$newsandupdate->category}}</h5>  
+                      </div>
                       <p class="text-gray-500 mb-6">
                         <small>Posted <u>{{$newsandupdate->created_at}}</u> by
                           <span class="text-gray-900">{{$newsandupdate->user_name}}</span></small>
                       </p>
+                      <h5 class="text-center font-medium mb-6">{{$newsandupdate->sub_title}}</h5>
                       <x-news-body :bodyCsv="$newsandupdate->body"/>
                       </div>
                       <div class="flex items-center justify-center mt-5 mb-2 absolute bottom-5 right-10">
                         <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg" role="group">
                           <a
-                            href="#"
+                            href="/newsandupdates/{{$newsandupdate->id}}/edit"
                             aria-current="page"
                             class="rounded-l px-6 py-2.5 bg-blue-800 text-white
                               font-medium text-xs leading-tight uppercase hover:bg-blue-700
@@ -53,7 +54,7 @@
                             class="rounded-r px-6 py-2.5 bg-red-500 text-white font-medium
                               text-xs leading-tight uppercase hover:bg-red-600 focus:bg-red-700 focus:outline-none focus:ring-0
                               active:bg-red-800 transition duration-150 ease-in-out"
-                              role="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" data-bs-att="">
+                              role="button" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" data-bs-att="/newsandupdates/{{$newsandupdate->id}}">
                             Delete
                           </button>
                         </div>
@@ -64,7 +65,7 @@
                           <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
                             <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
                               <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalScrollableLabel"> 
-                                Delete Post
+                                {{__('Delete Post')}} {{$newsandupdate->title}}
                               </h5>    
                               <button type="button"
                                 class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
@@ -80,7 +81,7 @@
                                 data-bs-dismiss="modal">
                                 Close
                               </button>
-                              <form method="POST" action="">
+                              <form method="POST" action="/newsandupdates/{{$newsandupdate->id}}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"

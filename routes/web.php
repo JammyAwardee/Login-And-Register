@@ -126,5 +126,11 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
 
     Route::post('/newsandupdates/store', [NewsandUpdatesController::class, 'store']);
 
+    Route::get('/newsandupdates/{newsandupdate}/edit', [NewsandUpdatesController::class, 'edit']);
+
+    Route::put('/newsandupdates/{newsandupdate}', [NewsandUpdatesController::class, 'update']);
+
+    Route::delete('/newsandupdates/{newsandupdate}', [NewsandUpdatesController::class, 'destroy']);
+
 });
 
