@@ -11,7 +11,7 @@
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 16/02/2023 03:50:04
+ Date: 18/02/2023 11:40:37
 */
 
 SET NAMES utf8mb4;
@@ -26,7 +26,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of migrations
@@ -42,5 +42,6 @@ INSERT INTO `migrations` VALUES (8, '2023_02_08_022734_create_zones_table', 1);
 INSERT INTO `migrations` VALUES (9, '2023_02_08_022832_create_news_and_updates_table', 1);
 INSERT INTO `migrations` VALUES (10, '2023_02_08_022905_create_projects_table', 1);
 INSERT INTO `migrations` VALUES (11, '2018_01_01_100000_create_ph_address_tables', 2);
+INSERT INTO `migrations` VALUES (12, '2023_02_15_200143_create_logs_table', 3);
 
 SET FOREIGN_KEY_CHECKS = 1;
