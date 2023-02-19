@@ -1,6 +1,6 @@
 <x-app>
 @include('partials._welcomenav')
-<main class="sm:container sm:mx-auto sm:max-w-lg pt-28">
+<main class="sm:container mx-5 sm:mx-auto sm:max-w-lg pt-28">
     <div class="flex">
         <div class="w-full">
             @if (session('status'))
@@ -12,9 +12,11 @@
                 {{ session('error') }}
             </div>
             @endif
-            <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-lg">
-
-                <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+            <div class="mx-auto bg-[url('/images/natural_paper.png')] shadow-none w-72 mb-10 sm:mb-16">
+                <img src="{{ asset('/images/logo.png') }}" alt="Barangay SP404">
+            </div>
+            <section class="flex flex-col break-words bg-white border-1 rounded-md sm:shadow-lg mb-10">
+                <header class="font-semibold bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
                     {{ __('Login') }}
                 </header>
 
@@ -27,7 +29,7 @@
                         </label>
 
                         <input id="email" type="email"
-                            class="form-input w-full @error('email') border-red-500 @enderror" name="email"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" name="email"
                             value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                         @error('email')
@@ -43,7 +45,7 @@
                         </label>
 
                         <input id="password" type="password"
-                            class="form-input w-full @error('password') border-red-500 @enderror" name="password"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" name="password"
                             required>
 
                         @error('password')

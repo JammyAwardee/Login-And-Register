@@ -1,6 +1,6 @@
 <x-app>
     @include('partials._adminnav')
-    <main class="sm:container sm:mx-auto sm:mt-10 pt-20 mb-10">
+    <main class="sm:container mx-5 sm:mx-auto sm:mt-10 pt-20 mb-16">
         <div class="max-w-4xl mx-auto sm:px-6">
     
             @if (session('status'))
@@ -13,9 +13,9 @@
                     </div>
                     @endif
     
-            <section class="shadow-lg flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] sm:border-1 sm:rounded-md sm:shadow-lg">
+            <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] border-1 rounded-md shadow-lg">
     
-                <header class="text-lg font-semibold bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="text-lg font-semibold bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
                     Users
                     
                 </header>
@@ -82,15 +82,15 @@
                                 <div
                                   class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                                   <button type="button"
-                                    class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                                    data-bs-dismiss="modal">
+                                  class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                                  data-bs-dismiss="modal">
                                     Close
                                   </button>
                                   <form method="POST" action="/users/{{$user->id}}">
                                     @csrf
                                     @method('DELETE')
                                   <button type="submit"
-                                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+                                  class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-900 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
                                     Delete User
                                   </button>
                                 </form>
@@ -108,7 +108,7 @@
               @else <p class="text-center text-gray-800 py-10 text-xl">No residents found</p>
               @endunless
               <div>
-              <div class="w-full py-3 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
+              <div class="w-full p-3 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
                 {{$users->links()}}
               </div>
               <div class="h-16 bg-blue-200 rounded-md"></div>

@@ -1,17 +1,17 @@
 <x-app>
     @include('partials._officialnav')
-    <main class="sm:container sm:mx-auto sm:mt-10 pt-20 mb-20">
+    <main class="sm:container mx-5 sm:mx-auto sm:mt-10 pt-20 mb-20">
         <div class="max-w-xl mx-auto shadow-lg">
     
             @include('partials._session')
     
-            <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] sm:border-1 sm:rounded-md sm:shadow-lg">
+            <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] border-1 rounded-md shadow-lg">
     
-                <header class="mb-3 font-semibold bg-blue-300 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="mb-3 font-semibold bg-blue-300 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
                     {{ __('Edit Post')}}
                     
                 </header>
-                <div class="px-5 mb-5 rounded-b-lg">
+                <div class="sm:px-5 mb-5 rounded-b-lg">
                     <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST"
                     action="/newsandupdates/{{$newsandupdate->id}}" enctype="multipart/form-data">
                     @csrf
@@ -77,12 +77,11 @@
                     </div>
                     <div class="flex flex-wrap relative">
                         <label for="dropzone-file" class="mx-auto cursor-pointer flex w-full max-w-lg flex-col items-center rounded-xl border-2 border-dashed border-gray-300 bg-white hover:border-blue-600 px-6 pb-6 text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mt-2 h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                               <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                             </svg>
-                            <h2 class="mt-4 text-xl font-medium text-gray-700 tracking-wide">Image File</h2>
-                            <p class="mt-2 text-gray-500 tracking-wide">Upload or darg & drop your file SVG, PNG, JPG or GIF. </p>
-                            <input id="dropzone-file" type="file" name="image" class="opacity-0 w-full absolute top-20 left-20"/>
+                            <p class="mt-2 text-sm text-gray-500 tracking-wide">Upload or drag & drop your image file SVG, PNG, JPG or GIF. </p>
+                            <input id="dropzone-file" type="file" name="image" class="opacity-0 border w-full absolute top-8 left-0"/>
                         </label>
                         @error('image')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -102,5 +101,5 @@
             </section>
         </div>
     </main>
-    
+    @include('partials._newsbackbutton')
     </x-app>

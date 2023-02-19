@@ -1,21 +1,13 @@
 <x-app>
 @include('partials._adminnav')
-<main class="sm:container sm:mx-auto sm:mt-10 pt-20 min-h-full">
+<main class="sm:container mx-5 sm:mx-auto sm:mt-10 pt-20 min-h-full mb-16">
     <div class="w-full sm:px-6">
 
-        @if (session('status'))
-                <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                    {{ session('status') }}
-                </div>
-                @elseif (session('error'))
-                <div class="text-sm border border-t-8 rounded text-red-700 border-red-600 bg-red-100 px-3 py-4 mb-4" role="alert">
-                    {{ session('error') }}
-                </div>
-                @endif
+        @include('partials._session')
 
-        <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] sm:border-1 sm:rounded-md sm:shadow-lg">
+        <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] border-1 rounded-md shadow-lg">
 
-            <header class="font-semibold bg-blue-300 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+            <header class="font-semibold bg-blue-300 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
                 Barangay Officials
             </header>
             @include('partials._officialssearch')
@@ -93,15 +85,15 @@
                           <div
                             class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                             <button type="button"
-                              class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                              data-bs-dismiss="modal">
+                            class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                            data-bs-dismiss="modal">
                               Close
                             </button>
                             <form method="POST" action="/officials/{{$official->id}}">
                               @csrf
                               @method('DELETE')
                             <button type="submit"
-                              class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+                            class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-900 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
                               Delete Official
                             </button>
                           </form>
@@ -118,7 +110,7 @@
           </div>
           @else <p class="text-center text-gray-800 py-10 text-xl">No Barangay Officials found</p>
           @endunless
-          <div class="w-full py-3 rounded-b-md mb-5 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
+          <div class="w-full p-3 rounded-b-md mb-5 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
             {{$officials->links()}}
           </div>
     </div>

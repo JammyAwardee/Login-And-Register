@@ -1,6 +1,6 @@
 <x-app>
 @include('partials._officialnav')
-<main class="sm:container sm:mx-auto sm:mt-10 pt-20">
+<main class="sm:container mx-5 sm:mx-auto sm:mt-10 pt-20">
     <div class="w-full sm:px-6">
 
         @if (session('status'))
@@ -13,9 +13,9 @@
             </div>
             @endif
 
-        <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-lg">
+        <section class="flex flex-col break-words bg-white border-1 rounded-md shadow-lg">
 
-            <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+            <header class="font-semibold bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
                 Dashboard
             </header>
 

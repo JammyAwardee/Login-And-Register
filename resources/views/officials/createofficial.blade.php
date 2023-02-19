@@ -3,43 +3,35 @@
     <main class="sm:container sm:mx-auto sm:mt-10 sm:pt-20 pt-24 min-h-full mb-12">
         <div class="max-w-xl sm:mx-auto sm:px-6 mx-5">
     
-            @if (session('status'))
-                    <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @elseif (session('error'))
-                    <div class="text-sm border border-t-8 rounded text-red-700 border-red-600 bg-red-100 px-3 py-4 mb-4" role="alert">
-                        {{ session('error') }}
-                    </div>
-                    @endif
+            @include('partials._session')
     
-            <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] sm:border-1 sm:rounded-md sm:shadow-lg">
+            <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] border-1 rounded-md shadow-lg">
     
-                <header class="font-semibold bg-blue-300 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="font-semibold bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
                     Create Official
                     
                 </header>
                 @include('partials._addofficialsearch')
                 @unless(count($residents)==0)
-                <form class="px-16 mb-5" action="/officials/createidhelper" method="POST">
-                    @csrf
-                    @foreach ($residents as $resident)
+                <div class="px-16 h-40 overflow-y-auto">
                 <div class="grid grid-cols-6 gap-1">
+                    @foreach ($residents as $resident)
                     <div class="col">
                         <input type="number" name="id" id="id"  class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" value= "{{$resident->id}}" >
                     </div>
                     <div class="col-span-4">
                         <input type="text" name="fullname" id="fullname"  class="bg-gray-50 border-none text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" value= "{{$resident->last_name}}, {{$resident->first_name}} {{$resident->middle_name}} {{$resident->suffix}}">
                     </div>
-                    <button type="submit" class="text-center w-full bg-gray-100 rounded-md text-gray-800 hover:bg-gray-300 hover:text-blue-700">
+                    <a href="/officials/{{$resident->id}}/createhelper" class="flex items-center justify-center w-full bg-gray-100 rounded-md text-gray-800 hover:bg-gray-300 hover:text-blue-700">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    </button>
+                    </a>
+                    @endforeach
                 </div>
-                @endforeach
-            </form>
+            </div>
+            {{-- </form> --}}
           @else <p class="text-center text-gray-800 py-10 text-lg">No Residents found</p>
           @endunless
-                <div class="px-16 sm:pb-5 rounded-b-lg pt-10 bg-blue-100">
+                <div class="px-14 sm:pb-5 rounded-b-lg pt-10 bg-gray-100">
                     <form action="/officials/store" method="POST">
                         @csrf
                         <div>
@@ -96,7 +88,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <button type="submit" class="mt-2 mx-5 sm:mx-0 sm:w-2/5 w-1/2 mb-6 text-white flex items-center justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        <button type="submit" class="mt-2 sm:mx-0 sm:w-2/5 w-1/2 mb-8 text-white flex items-center justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
                             Create Official
                         </button>

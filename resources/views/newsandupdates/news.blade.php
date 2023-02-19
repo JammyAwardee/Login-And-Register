@@ -1,10 +1,10 @@
 <x-app>
     @include('partials._officialnav')
-    <main class="sm:container sm:mx-auto sm:mt-10 pt-20 min-h-full">
+    <main class="sm:container sm:mx-auto sm:mt-10 pt-20 min-h-full mb-16">
         <div class="w-full sm:px-6 px-4">
             @include('partials._session')
             <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] sm:border-1 rounded-md shadow-lg">
-                <header class="font-semibold bg-blue-300 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
+                <header class="font-semibold bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
                     {{ __('News and Updates')}}
                 </header>
                 @include('partials._officialssearch')  
@@ -27,7 +27,7 @@
                       </div>
                       <div class="px-3 mb-20">
                         <h5 class="text-lg font-bold mb-3">{{$newsandupdate->title}}</h5>
-                        <div class="mb-3  text-gray-900 font-medium text-xs flex items-center justify-center uppercase">
+                      <div class="mb-3  text-gray-900 font-medium text-xs flex items-center justify-center uppercase">
                         <h5 class="bg-yellow-600 text-white px-3 py-1 rounded-2xl">{{$newsandupdate->category}}</h5>  
                       </div>
                       <p class="text-gray-500 mb-6">
@@ -77,7 +77,7 @@
                             <div
                               class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                               <button type="button"
-                                class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
                                 data-bs-dismiss="modal">
                                 Close
                               </button>
@@ -85,7 +85,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+                                class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-900 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
                                 Delete Post
                                 </button>
                                 </form>
@@ -104,7 +104,7 @@
             
             @else <p class="text-center text-gray-800 py-10 text-xl">No Newsa and Updates articles found.</p>
             @endunless
-            <div class="w-full py-3 px-2 rounded-b-md mb-5 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
+            <div class="w-full py-3 px-3 rounded-b-md mb-5 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
                 {{$newsandupdates->links()}}
             </div>
         </div>

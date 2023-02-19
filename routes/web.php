@@ -23,9 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [NewsandUpdatesController::class, 'welcome']);
 Auth::routes();
 
 /*------------------------------------------
@@ -34,7 +32,7 @@ All Normal Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:user'])->group(function () {
-  
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
@@ -43,18 +41,18 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
     Route::post('/update-password', [HomeController::class, 'updatePassword'])->name('update-password');
 });
-  
+
 /*------------------------------------------
 --------------------------------------------
 All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-  
+
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 
     Route::get('/users', [UserController::class, 'index']);
-    
+
     Route::get('/users/create', [UserController::class, 'create']);
 
     Route::post('/users', [UserController::class, 'store']);
@@ -66,7 +64,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::delete('/users/{user}', [UserController::class, 'destroy']);
 
     Route::put('/users/{user}/password', [UserController::class, 'userpasswordstore']);
-    
+
     Route::get('/logs', [LogController::class, 'index']);
 
     Route::get('/officials', [BarangayOfficialsController::class, 'index'])->name('officials');
@@ -77,41 +75,58 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::post('/officials/store', [BarangayOfficialsController::class, 'store']);
 
-    Route::post('/officials/add-official-search', [BarangayOfficialsController::class, 'addofficialsearch']);
-
-    Route::post('/officials/createidhelper', [BarangayOfficialsController::class, 'createidhelper']);
+    Route::get('/officials/{resident}/createhelper', [ResidentsController::class, 'createhelper']);
 
     Route::get('/officials/{official}/edit', [BarangayOfficialsController::class, 'edit']);
 
     Route::put('/officials/{official}', [BarangayOfficialsController::class, 'update']);
 
     Route::delete('/officials/{official}', [BarangayOfficialsController::class, 'destroy']);
-
-
-
 });
-  
+
 /*------------------------------------------
 --------------------------------------------
 All Officials Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:official'])->group(function () {
-    
+
     Route::get('/official/home', [HomeController::class, 'officialHome'])->name('official.home');
-    
+
     Route::get('/official/profile', [HomeController::class, 'officialProfile'])->name('official-profile');
-    
+
     Route::post('/official/update-profile', [HomeController::class, 'updateOfficialProfile'])->name('official-update-profile');
-    
+
     Route::post('/official/update-password', [HomeController::class, 'updateOfficialPassword'])->name('official-update-password');
-   
+
     Route::get('/residents', [ResidentsController::class, 'index'])->name('residents');
-    
+
+    Route::get('/residents/create', [ResidentsController::class, 'create']);
+
+    Route::post('/residents/store', [ResidentsController::class, 'store']);
+
+    Route::get('/residents/{resident}/addhousehold', [ResidentsController::class, 'addhousehold']);
+
+    Route::put('residents/{resident}/storehousehold', [ResidentsController::class, 'storehousehold']);
+
+    Route::get('/residents/addhousehold/{household}/createresidenthelper', [HouseholdsController::class, 'createresidenthelper']);
+
+    Route::get('/residents/{resident}/adduser', [ResidentsController::class, 'adduser']);
+
+    Route::get('/residents/adduser/{user}/createresidenthelper', [UserController::class, 'createresidenthelper']);
+
+    Route::put('/residents/{resident}/storeuser', [ResidentsController::class, 'storeuser']);
+
+    Route::get('/residents/{resident}/edit', [ResidentsController::class, 'edit']);
+
+    Route::put('/residents/{resident}', [ResidentsController::class, 'update']);
+
+    Route::delete('/residents/{resident}', [ResidentsController::class, 'destroy']);
+
     Route::get('/households', [HouseholdsController::class, 'index'])->name('households');
-    
+
     Route::get('/households/create', [HouseholdsController::class, 'create']);
-    
+
     Route::post('/households/store', [HouseholdsController::class, 'store']);
 
     Route::get('/households/{household}/edit', [HouseholdsController::class, 'edit']);
@@ -131,6 +146,4 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
     Route::put('/newsandupdates/{newsandupdate}', [NewsandUpdatesController::class, 'update']);
 
     Route::delete('/newsandupdates/{newsandupdate}', [NewsandUpdatesController::class, 'destroy']);
-
 });
-

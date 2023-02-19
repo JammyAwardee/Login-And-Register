@@ -1,24 +1,16 @@
 <x-app>
 @if((Auth::user()->type)=='official') @include('partials._officialnav') @else @include('partials._usernav')@endif
-<main class="sm:container sm:mx-auto sm:max-w-lg pt-28">
+<main class="sm:container mx-5 sm:mx-auto sm:max-w-lg pt-28 mb-16">
     <div class="flex">
         <div class="w-full pb-20">
-            @if (session('status'))
-            <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                {{ session('status') }}
-            </div>
-            @elseif (session('error'))
-            <div class="text-sm border border-t-8 rounded text-red-700 border-red-600 bg-red-100 px-3 py-4 mb-4" role="alert">
-                {{ session('error') }}
-            </div>
-            @endif
-            <section class="flex flex-col break-words bg-gray-50 sm:border-1 sm:rounded-md sm:shadow-lg pb-10">
+            @include('partials._session')
+            <section class="flex flex-col break-words bg-gray-50 border-1 rounded-md shadow-lg pb-10">
 
-                <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="font-semibold bg-sky-600 text-gray-50 py-5 sm:py-6 px-8 rounded-t-md">
                     {{ __('Update your profile') }}
                 </header>
 
-                <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST"
+                <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 bg-gray-100 pb-10" method="POST"
                     action="{{ route('update-profile') }}">
                     @csrf
 
@@ -27,7 +19,7 @@
                             {{ __('Name') }}:
                         </label>
 
-                        <input id="name" type="text" class="form-input w-full @error('name')  border-red-500 @enderror"
+                        <input id="name" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                             name="name" value="{{ Auth::user()->name }}" required autocomplete="name" autofocus>
 
                         @error('name')
@@ -43,7 +35,7 @@
                         </label>
 
                         <input id="email" type="email"
-                            class="form-input w-full @error('email') border-red-500 @enderror" name="email"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" name="email"
                             value="{{ Auth::user()->email }}" required autocomplete="email">
 
                         @error('email')
@@ -66,7 +58,7 @@
 
                     <div class="flex flex-wrap">
                         <label for="oldPasswordInput" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Old Password</label>
-                        <input name="old_password" type="password" class="form-input w-full @error('old_password') is-invalid @enderror" id="oldPasswordInput"
+                        <input name="old_password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" id="oldPasswordInput"
                             placeholder="Old Password">
                         @error('old_password')
                             <span class="text-danger">{{ $message }}</span>
@@ -79,7 +71,7 @@
                         </label>
 
                         <input id="newPasswordInput" type="password"
-                            class="form-input w-full @error('password') border-red-500 @enderror" name="new_password"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" name="new_password"
                             required autocomplete="new-password">
 
                         @error('password')
@@ -94,7 +86,7 @@
                             {{ __('Confirm Password') }}:
                         </label>
 
-                        <input id="password-confirm" type="password" class="form-input w-full"
+                        <input id="password-confirm" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                             name="new_password_confirmation" required autocomplete="new-password">
                     </div>
 

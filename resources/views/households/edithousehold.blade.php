@@ -1,6 +1,6 @@
 <x-app>
     @include('partials._officialnav')
-    <main class="sm:container sm:mx-auto sm:mt-10 pt-20">
+    <main class="sm:container mx-5 sm:mx-auto sm:mt-10 pt-20 mb-16">
         <div class="max-w-xl mx-auto shadow-lg">
     
             @if (session('status'))
@@ -13,9 +13,9 @@
                     </div>
                     @endif
     
-            <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] sm:border-1 sm:rounded-md sm:shadow-lg">
+            <section class="flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] border-1 rounded-md shadow-lg">
     
-                <header class="mb-5 font-semibold bg-blue-300 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="mb-5 font-semibold bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
                     Update Household
                     
                 </header>
@@ -161,5 +161,5 @@
             </section>
         </div>
     </main>
-    
+    @include('partials._householdsbackbutton')
     </x-app>

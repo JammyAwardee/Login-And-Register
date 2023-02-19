@@ -1,6 +1,6 @@
 @auth
 <a @if ((Auth::user()->type) === "admin") href="/admin/home" @elseif ((Auth::user()->type) === "official") href="/official/home" @else href="/home" @endif>
-<span class="font-bold hidden sm:block text-white bg-primary-700 hover:text-amber-50 focus:ring-4 focus:ring-primary-300 rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Dashboard</span>
+<span class="font-medium hidden sm:block text-white bg-blue-600 hover:bg-blue-700 hover:text-amber-50 focus:ring-4 focus:ring-blue-900 rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none">Dashboard</span>
 </a>
 
 @else

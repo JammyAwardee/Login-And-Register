@@ -3,15 +3,7 @@
     <main class="sm:container sm:mx-auto sm:mt-10 mx-5 pt-20 mb-10">
         <div class="max-w-lg mx-auto sm:px-6">
     
-            @if (session('status'))
-                    <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @elseif (session('error'))
-                    <div class="text-sm border border-t-8 rounded text-red-700 border-red-600 bg-red-100 px-3 py-4 mb-4" role="alert">
-                        {{ session('error') }}
-                    </div>
-                    @endif
+            @include('partials._session')
     
             <section class="shadow-lg flex flex-col break-words bg-[url('/images/lightpaperfibers.png')] sm:border-1 rounded-md sm:shadow-lg">
     
@@ -22,7 +14,7 @@
                 @include('partials._logssearch')
             
             @unless(count($logs) == 0)
-            <div class="py-10 bg-blue-100 flex justify-center lg:px-20 px-10">
+            <div class="py-10 bg-gray-100 flex justify-center lg:px-20 px-10">
             <ol class="relative border-l border-yellow-300">
                 @foreach($logs as $log)
                 <li class="mb-10 ml-4">
