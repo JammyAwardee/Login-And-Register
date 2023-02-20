@@ -221,12 +221,12 @@
                             <label for="employment_status" class="block mb-2 text-sm font-medium text-gray-900 ">Employment Status</label>
                             <select id="employment_status" name="employment_status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                                 <option value="" {{old('employment_status') == "" ? 'selected' : ''}}></option>
-                                <option value="Student" {{old('employment_status') == "Student" ? 'selected' : 'Student'}}>Student</option>
-                                <option value="Business Owner" {{old('employment_status') == "Business Owner" ? 'selected' : 'Business Owner'}}>Business Owner</option>
+                                <option value="Self-employed" {{old('employment_status') == "Self-employed" ? 'selected' : 'Self-employed'}}>Self-employed</option>
                                 <option value="Unemployed" {{old('employment_status') == "Unemployed" ? 'selected' : 'Unemployed'}}>Unemployed</option>
                                 <option value="Regular" {{old('employment_status') == "Regular" ? 'selected' : 'Regular'}}>Regular</option>
                                 <option value="Contractual" {{old('employment_status') == "Contractual" ? 'selected' : 'Contractual'}}>Contractual</option>
                                 <option value="Casual" {{old('employment_status') == "Casual" ? 'selected' : 'Casual'}}>Casual</option>
+                                <option value="Retired" {{old('employment_status') == "Retired" ? 'selected' : 'Retired'}}>Retired</option>
                             </select>
                               @error('employment_status')
                                   <p class="text-red-500 text-xs mt-2">
@@ -281,5 +281,5 @@
             </section>
         </div>
     </main>
-    @include('partials._householdsbackbutton')
+    @include('partials._residentbackbutton')
     </x-app>

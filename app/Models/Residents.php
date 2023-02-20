@@ -30,6 +30,7 @@ class Residents extends Model
                 ->orWhere('first_name', 'like', '%' . request('search') . '%')
                 ->orWhere('middle_name', 'like', '%' . request('search') . '%')
                 ->orWhere('civil_status', 'like', '%' . request('search') . '%')
+                ->orWhere('gender', 'like', request('search') . '%')
                 ->orWhere('employment_status', 'like', '%' . request('search') . '%')
                 ->orWhere('id', request('search'));
         }

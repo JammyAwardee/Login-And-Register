@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [NewsandUpdatesController::class, 'welcome']);
+Route::get('/services', function () {
+    return view('services');
+});
+
 Auth::routes();
 
 /*------------------------------------------
@@ -100,6 +104,24 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
     Route::post('/official/update-password', [HomeController::class, 'updateOfficialPassword'])->name('official-update-password');
 
     Route::get('/residents', [ResidentsController::class, 'index'])->name('residents');
+
+    Route::get('/residents/seniors', [ResidentsController::class, 'seniors']);
+
+    Route::get('/residents/minors', [ResidentsController::class, 'minors']);
+
+    Route::get('/residents/labor', [ResidentsController::class, 'labor']);
+
+    Route::get('/residents/unemployed', [ResidentsController::class, 'unemployed']);
+
+    Route::get('/residents/women', [ResidentsController::class, 'women']);
+
+    Route::get('/residents/farmers', [ResidentsController::class, 'farmers']);
+
+    Route::get('/residents/ofw', [ResidentsController::class, 'ofw']);
+
+    Route::get('/residents/businessman', [ResidentsController::class, 'businessman']);
+
+    Route::get('/residents/philhealth', [ResidentsController::class, 'philhealth']);
 
     Route::get('/residents/create', [ResidentsController::class, 'create']);
 

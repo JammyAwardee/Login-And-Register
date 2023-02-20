@@ -12,7 +12,7 @@
                     
                 </header>
                 <div class="px-5 mb-5 rounded-b-lg">
-                <form action="/residents/store" method="POST" enctype="multipart/form-data">
+                <form action="/residents/{{$resident->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="grid gap-4 mb-4 sm:grid-cols-2 xl:grid-cols-4 grid-cols-1">
@@ -222,12 +222,12 @@
                             <label for="employment_status" class="block mb-2 text-sm font-medium text-gray-900 ">Employment Status</label>
                             <select id="employment_status" name="employment_status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                                 <option value="" {{$resident->employment_status == "" ? 'selected' : ''}}></option>
-                                <option value="Student" {{$resident->employment_status == "Student" ? 'selected' : 'Student'}}>Student</option>
-                                <option value="Business Owner" {{$resident->employment_status == "Business Owner" ? 'selected' : 'Business Owner'}}>Business Owner</option>
+                                <option value="Self-employed" {{$resident->employment_status == "Self-employed" ? 'selected' : 'Self-employed'}}>Self Employed</option>
                                 <option value="Unemployed" {{$resident->employment_status == "Unemployed" ? 'selected' : 'Unemployed'}}>Unemployed</option>
                                 <option value="Regular" {{$resident->employment_status == "Regular" ? 'selected' : 'Regular'}}>Regular</option>
                                 <option value="Contractual" {{$resident->employment_status == "Contractual" ? 'selected' : 'Contractual'}}>Contractual</option>
                                 <option value="Casual" {{$resident->employment_status == "Casual" ? 'selected' : 'Casual'}}>Casual</option>
+                                <option value="Retired" {{$resident->employment_status == "Retired" ? 'selected' : 'Retired'}}>Retired</option>
                             </select>
                               @error('employment_status')
                                   <p class="text-red-500 text-xs mt-2">
@@ -309,5 +309,5 @@
             </section>
         </div>
     </main>
-    @include('partials._householdsbackbutton')
+    @include('partials._residentbackbutton')
     </x-app>

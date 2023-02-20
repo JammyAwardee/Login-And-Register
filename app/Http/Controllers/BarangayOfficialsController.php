@@ -38,6 +38,7 @@ class BarangayOfficialsController extends Controller
                     ->paginate(10)
             );
             if (count($officials) > 0) {
+                // dd($officials);
                 return view('officials.officials', $officials);
             }
             return redirect('/officials');

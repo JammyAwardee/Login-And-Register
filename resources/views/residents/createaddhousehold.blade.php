@@ -116,5 +116,5 @@
             </section>
         </div>
     </main>
-    @include('partials._householdsbackbutton')
+    @include('partials._residentbackbutton')
     </x-app>

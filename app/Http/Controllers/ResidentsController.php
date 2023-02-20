@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Households;
+use Carbon\Carbon;
 use App\Models\Log;
-use App\Models\Residents;
 use App\Models\User;
+use App\Models\Residents;
+use App\Models\Households;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +17,62 @@ class ResidentsController extends Controller
     public function index(Request $request)
     {
         return view('residents.residents', ['residents' => Residents::sortable(['updated_at' => 'desc'])->filter(request(['search']))->paginate(10)]);
+    }
+
+    public function seniors()
+    {
+        $seniorAge = Carbon::today()->subYears(65)->startOfDay();
+        return view('residents.residents', ['residents' => Residents::where('b_date', '<=', $seniorAge)->paginate(10)]);
+    }
+
+    public function minors()
+    {
+        $minorAge = Carbon::today()->subYears(18)->startOfDay();
+        return view('residents.residents', ['residents' => Residents::where('b_date', '>', $minorAge)->paginate(10)]);
+    }
+
+    public function labor()
+    {
+        $maxAge = 64;
+        $minAge = 15;
+        $minDate = Carbon::today()->subYears($maxAge);
+        $maxDate = Carbon::today()->subYears($minAge)->endOfDay();
+        return view('residents.residents', ['residents' => Residents::whereBetween('b_date', [$minDate, $maxDate])->paginate(10)]);
+    }
+
+    public function unemployed()
+    {
+        $maxAge = 64;
+        $minAge = 15;
+        $minDate = Carbon::today()->subYears($maxAge);
+        $maxDate = Carbon::today()->subYears($minAge)->endOfDay();
+        return view('residents.residents', ['residents' => Residents::whereBetween('b_date', [$minDate, $maxDate])->where('employment_status', 'Unemployed')->paginate(10)]);
+    }
+
+    public function women()
+    {
+        $minorAge = Carbon::today()->subYears(18)->startOfDay();
+        return view('residents.residents', ['residents' => Residents::where('b_date', '<', $minorAge)->where('gender', 'Female')->paginate(10)]);
+    }
+
+    public function farmers()
+    {
+        return view('residents.residents', ['residents' => Residents::where('occupation', 'Farmer')->paginate(10)]);
+    }
+
+    public function ofw()
+    {
+        return view('residents.residents', ['residents' => Residents::where('occupation', 'OFW')->paginate(10)]);
+    }
+
+    public function businessman()
+    {
+        return view('residents.residents', ['residents' => Residents::where('occupation', 'Business Owner')->paginate(10)]);
+    }
+
+    public function philhealth()
+    {
+        return view('residents.residents', ['residents' => Residents::where('has_philhealth', true)->paginate(10)]);
     }
 
     public function create()
