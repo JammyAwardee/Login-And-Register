@@ -26,7 +26,7 @@
             </div>
         </section>
            <section>
-            <div id="main" class="main-content flex-1 bg-gray-100 mt-1 md:mt-2 pb-12 md:pb-5 px-5">
+            <div id="main" class="main-content flex-1 bg-gray-100 pt-5 pb-12 md:pb-5 px-5 bg-[url('/images/natural_paper.png')]">
                 <div class="flex flex-wrap">
                     <div class="w-full md:w-1/2 xl:w-1/3 md:p-6 px-6 py-4">
                         <!--Metric Card-->
@@ -287,7 +287,7 @@
                                         "datasets": [{
                                             "label": "Issues",
                                             "data": [se, un, rg, ct],
-                                            "backgroundColor": ["rgba(194, 0, 0, 1)", "rgba(164, 108, 65, 1)", "rgba(65, 164, 92, 1)", "rgba(204, 160, 0, 1)"]
+                                            "backgroundColor": ["rgba(127, 89, 155, 1)", "rgba(97, 184, 169, 1)", "rgba(65, 164, 92, 1)", "rgba(97, 107, 184, 1)"]
                                         }]
                                     }
                                 });

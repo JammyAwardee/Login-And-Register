@@ -73,6 +73,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/officials', [BarangayOfficialsController::class, 'index'])->name('officials');
 
+    Route::get('/officials/active', [BarangayOfficialsController::class, 'active']);
+
     Route::post('/officials/search', [BarangayOfficialsController::class, 'search']);
 
     Route::get('/officials/create', [BarangayOfficialsController::class, 'create']);

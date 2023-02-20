@@ -40,7 +40,78 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('adminHome');
+        $activeofficials = DB::table('barangayofficials')
+            ->whereNull('term_end')
+            ->get();
+
+        $users = DB::table('users')
+            ->get();
+
+        $logs = DB::table('logs')
+            ->get();
+
+        $log_1 = DB::table('logs')
+            ->whereDate('created_at', '>=', Carbon::now()->subDays(1))
+            ->get();
+
+        $log_2 = DB::table('logs')
+            ->whereDate('created_at', '>=', Carbon::now()->subDAys(2))
+            ->whereDate('created_at', '<', Carbon::now()->subDAys(1))
+            ->get();
+
+        $log_3 = DB::table('logs')
+            ->whereDate('created_at', '>=', Carbon::now()->subDAys(3))
+            ->whereDate('created_at', '<', Carbon::now()->subDAys(2))
+            ->get();
+
+        $log_4 = DB::table('logs')
+            ->whereDate('created_at', '>=', Carbon::now()->subDAys(4))
+            ->whereDate('created_at', '<', Carbon::now()->subDAys(3))
+            ->get();
+
+        $log_5 = DB::table('logs')
+            ->whereDate('created_at', '>=', Carbon::now()->subDAys(4))
+            ->whereDate('created_at', '<', Carbon::now()->subDAys(3))
+            ->get();
+
+        $log_6 = DB::table('logs')
+            ->whereDate('created_at', '>=', Carbon::now()->subDAys(4))
+            ->whereDate('created_at', '<', Carbon::now()->subDAys(3))
+            ->get();
+
+        $log_7 = DB::table('logs')
+            ->whereDate('created_at', '>=', Carbon::now()->subDAys(4))
+            ->whereDate('created_at', '<', Carbon::now()->subDAys(3))
+            ->get();
+
+        $admin = DB::table('users')
+            ->where('type', 2)
+            ->get();
+
+        $official = DB::table('users')
+            ->where('type', 1)
+            ->get();
+
+        $user = DB::table('users')
+            ->where('type', 0)
+            ->get();
+
+        $create = DB::table('logs')
+            ->where('action', 'created')
+            ->get();
+
+        $update = DB::table('logs')
+            ->where('action', 'updated')
+            ->get();
+
+        $delete = DB::table('logs')
+            ->where('action', 'deleted')
+            ->get();
+
+
+
+
+        return view('adminHome', ['activeofficials' => $activeofficials, 'users' => $users, 'logs' => $logs, 'log_1' => $log_1, 'log_2' => $log_2, 'log_3' => $log_3, 'log_4' => $log_4, 'log_5' => $log_5, 'log_6' => $log_6, 'log_7' => $log_7, 'admin' => $admin, 'official' => $official, 'user' => $user, 'create' => $create, 'update' => $update, 'delete' => $delete]);
     }
 
     /**

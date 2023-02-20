@@ -111,7 +111,6 @@
               <div class="w-full p-3 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
                 {{$users->links()}}
               </div>
-              <div class="h-16 bg-blue-200 rounded-md"></div>
               </div>
         </div>
     </main>

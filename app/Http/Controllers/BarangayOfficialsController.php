@@ -15,8 +15,9 @@ class BarangayOfficialsController extends Controller
     public function index()
     {
         $officials = array("officials" => DB::table('barangayofficials')
-            ->join('residents', 'resident_id', '=', 'residents.id')
-            ->select('residents.last_name', 'residents.first_name', 'residents.middle_name', 'residents.suffix', 'barangayofficials.resident_id', 'barangayofficials.id', 'barangayofficials.role', 'barangayofficials.term_start', 'barangayofficials.term_end')
+            // ->join('residents', 'resident_id', '=', 'residents.id')
+            // ->select('residents.last_name', 'residents.first_name', 'residents.middle_name', 'residents.suffix', 'barangayofficials.resident_id', 'barangayofficials.id', 'barangayofficials.role', 'barangayofficials.term_start', 'barangayofficials.term_end')
+            ->select('barangayofficials.barangayofficial_name', 'barangayofficials.resident_id', 'barangayofficials.id', 'barangayofficials.role', 'barangayofficials.term_start', 'barangayofficials.term_end')
             ->orderBy('role', 'asc')
             ->paginate(10));
         return view('officials.officials', $officials);
@@ -28,13 +29,17 @@ class BarangayOfficialsController extends Controller
         if ($query != '') {
             $officials = array(
                 "officials" => DB::table('barangayofficials')
-                    ->join('residents', 'resident_id', '=', 'residents.id')
-                    ->select('residents.last_name', 'residents.first_name', 'residents.middle_name', 'residents.suffix', 'barangayofficials.resident_id', 'barangayofficials.id', 'barangayofficials.role', 'barangayofficials.term_start', 'barangayofficials.term_end')
-                    ->where('residents.last_name', 'like', '%' . $query . '%')
-                    ->orWhere('residents.first_name', 'like', '%' . $query . '%')
-                    ->orWhere('residents.middle_name', 'like', '%' . $query . '%')
-                    ->orWhere('residents.suffix', 'like', '%' . $query . '%')
+                    // ->join('residents', 'resident_id', '=', 'residents.id')
+                    // ->select('residents.last_name', 'residents.first_name', 'residents.middle_name', 'residents.suffix', 'barangayofficials.resident_id', 'barangayofficials.id', 'barangayofficials.role', 'barangayofficials.term_start', 'barangayofficials.term_end')
+                    ->select('barangayofficials.barangayofficial_name', 'barangayofficials.resident_id', 'barangayofficials.id', 'barangayofficials.role', 'barangayofficials.term_start', 'barangayofficials.term_end')
+                    // ->where('residents.last_name', 'like', '%' . $query . '%')
+                    // ->orWhere('residents.first_name', 'like', '%' . $query . '%')
+                    // ->orWhere('residents.middle_name', 'like', '%' . $query . '%')
+                    // ->orWhere('residents.suffix', 'like', '%' . $query . '%')
+                    ->where('barangayofficials.barangayofficial_name', 'like', '%' . $query . '%')
                     ->orWhere('barangayofficials.role', 'like', '%' . $query . '%')
+                    ->orWhere('barangayofficials.resident_id', $query)
+                    ->orWhere('barangayofficials.id', $query)
                     ->paginate(10)
             );
             if (count($officials) > 0) {
@@ -44,6 +49,16 @@ class BarangayOfficialsController extends Controller
             return redirect('/officials');
         }
         return redirect('/officials')->with('error', "Please search by Official's name, role");
+    }
+
+    public function active()
+    {
+        $officials = array("officials" => DB::table('barangayofficials')
+            ->select('barangayofficials.barangayofficial_name', 'barangayofficials.resident_id', 'barangayofficials.id', 'barangayofficials.role', 'barangayofficials.term_start', 'barangayofficials.term_end')
+            ->whereNull('term_end')
+            ->orderBy('role', 'asc')
+            ->paginate(10));
+        return view('officials.officials', $officials);
     }
 
     public function create()
