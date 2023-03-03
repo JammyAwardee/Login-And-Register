@@ -11,7 +11,7 @@
                     Create Resident
                     
                 </header>
-                @include('partials._addresidentsearch')
+                @include('partials._addusersearch')
                 @unless(count($users)==0)
                 <div class="sm:px-16 px-1 h-40 overflow-y-auto">
                 <div class="grid grid-cols-10 gap-1">

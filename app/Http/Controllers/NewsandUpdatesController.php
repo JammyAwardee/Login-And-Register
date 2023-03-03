@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\NewsandUpdates;
 use Illuminate\Validation\Rule;
+use App\Models\BarangayOfficials;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class NewsandUpdatesController extends Controller
@@ -94,4 +96,5 @@ class NewsandUpdatesController extends Controller
         Log::create($log);
         return redirect('/newsandupdates')->with('status', 'Post deleted successfully');
     }
+
 }

@@ -1,9 +1,9 @@
 
 <header class="fixed top-0 left-0 right-0 z-10">
-    <nav class="bg-blue-800 border-gray-200 px-4 lg:px-6 py-2.5">
+    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-2xl">
             <a href="{{ url('/') }}" class="flex items-center">
-                <span class="self-center text-xl font-semibold whitespace-nowrap text-white">{{ config('app.name', 'Laravel') }}</span>
+                <img src={{asset('/images/logosmall.png')}} alt="Logo">
             </a>
             <div class="flex items-center lg:order-2">
                 <x-usernavitems />
@@ -16,16 +16,16 @@
             <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li>
-                        <a href="{{ url('/admin/home') }}" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 border-b border-gray-100 lg:border-0 hover:text-amber-50" aria-current="page">Dashboard</a>
+                        <a href="{{ url('/admin/home') }}" class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 border-b border-gray-100 lg:border-0 hover:text-gray-400" aria-current="page">Dashboard</a>
                     </li>
                     <li>
-                        <a href="{{ url('/users') }}" class="block py-2 pl-3 text-gray-200 border-b border-gray-100 hover:text-amber-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Users</a></a>
+                        <a href="{{ url('/users') }}" class="block py-2 pl-3 text-gray-700 border-b border-gray-100 hover:text-gray-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Users</a></a>
                     </li>
                     <li>
-                        <a href="{{ url('/officials') }}" class="block py-2 pl-3 text-gray-200 border-b border-gray-100 hover:text-amber-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Our Officials</a></a>
+                        <a href="{{ url('/officials') }}" class="block py-2 pl-3 text-gray-700 border-b border-gray-100 hover:text-gray-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Our Officials</a></a>
                     </li>
                     <li>
-                        <a href="{{ url('/logs') }}" class="block py-2 pl-3 text-gray-200 border-b border-gray-100 hover:text-amber-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Logs</a></a>
+                        <a href="{{ url('/logs') }}" class="block py-2 pl-3 text-gray-700 border-b border-gray-100 hover:text-gray-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Logs</a></a>
                     </li>
                     
                 </ul>

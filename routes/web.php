@@ -5,10 +5,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HouseholdsController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\NewsandUpdatesController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentsController;
+use App\Http\Controllers\TransactionsController;
 use App\Http\Controllers\UserController;
 use App\Models\Log;
+use App\Models\NewsandUpdates;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,9 +27,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [NewsandUpdatesController::class, 'welcome']);
+
 Route::get('/services', function () {
     return view('services');
 });
+
+Route::get('/newsupdates', [BarangayOfficialsController::class, 'activeofficials']);
+
+// Route::get('/barangayofficials', [BarangayOfficialsController::class, 'barangayofficials']);
 
 Auth::routes();
 
@@ -44,6 +52,8 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::post('/update-profile', [HomeController::class, 'updateProfile'])->name('update-profile');
 
     Route::post('/update-password', [HomeController::class, 'updatePassword'])->name('update-password');
+
+    Route::post('/transaction/open', [TransactionsController::class, 'open']);
 });
 
 /*------------------------------------------
@@ -107,6 +117,8 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
 
     Route::get('/residents', [ResidentsController::class, 'index'])->name('residents');
 
+    Route::get('/residents/export', [ResidentsController::class, 'export']);
+
     Route::get('/residents/seniors', [ResidentsController::class, 'seniors']);
 
     Route::get('/residents/minors', [ResidentsController::class, 'minors']);
@@ -131,11 +143,15 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
 
     Route::get('/residents/{resident}/addhousehold', [ResidentsController::class, 'addhousehold']);
 
+    Route::get('/residents/{resident}/addhouseholdsearch', [ResidentsController::class, 'addhouseholdsearch']);
+
     Route::put('residents/{resident}/storehousehold', [ResidentsController::class, 'storehousehold']);
 
     Route::get('/residents/addhousehold/{household}/createresidenthelper', [HouseholdsController::class, 'createresidenthelper']);
 
     Route::get('/residents/{resident}/adduser', [ResidentsController::class, 'adduser']);
+
+    Route::get('/residents/{resident}/addusersearch', [ResidentsController::class, 'addusersearch']);
 
     Route::get('/residents/adduser/{user}/createresidenthelper', [UserController::class, 'createresidenthelper']);
 
@@ -170,4 +186,8 @@ Route::middleware(['auth', 'user-access:official'])->group(function () {
     Route::put('/newsandupdates/{newsandupdate}', [NewsandUpdatesController::class, 'update']);
 
     Route::delete('/newsandupdates/{newsandupdate}', [NewsandUpdatesController::class, 'destroy']);
+
+    Route::get('/transactions/{transaction}/deny', [TransactionsController::class, 'deny']);
+
+    Route::get('/transactions/{transaction}/generate-pdf', [PDFController::class, 'generatePDF']);
 });

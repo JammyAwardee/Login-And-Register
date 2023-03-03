@@ -142,7 +142,7 @@
 @endunless
 
 @include('partials._addresidentbutton')
-<section class="text-gray-600 body-font bg-gray-100 my-2 flex justify-center items-center">
+{{-- <section class="text-gray-600 body-font bg-gray-100 my-2 flex justify-center items-center">
   <div class="container px-5 py-14 mx-auto">
     <div class="flex flex-wrap text-center ">
       <div class="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500">
@@ -250,6 +250,6 @@
       </div>
       
     </div>
-</section>
+</section> --}}
 
 </x-app>

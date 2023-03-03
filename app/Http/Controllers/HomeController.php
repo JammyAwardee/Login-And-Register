@@ -6,8 +6,10 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Residents;
 use App\Models\Households;
+use App\Models\Transactions;
 use Illuminate\Http\Request;
 use App\Models\NewsandUpdates;
+use App\Models\BarangayOfficials;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -30,7 +32,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', ['transactions' => Transactions::latest()->paginate(5)]);
     }
 
     /**
@@ -206,7 +208,7 @@ class HomeController extends Controller
             ->where('employment_status', 'retired')
             ->get();
 
-        return view('officialHome', ['residents' => $residents, 'households' => $households, 'newsandupdates' => $newsandupdates, 'seniors' => $seniors, 'minors' => $minors, 'labor' => $labor, 'unemployed' => $unemployed, 'women' => $women, 'farmers' => $farmers, 'ofw' => $ofw, 'businessman' => $businessman, 'philhealth' => $philhealth, 'female' => $female, 'male' => $male, 'children' => $children, 'selfemployed' => $selfemployed, 'regular' => $regular, 'contractual' => $contractual, 'casual' => $casual, 'retired' => $retired]);
+        return view('officialHome', ['residents' => $residents, 'households' => $households, 'newsandupdates' => $newsandupdates, 'seniors' => $seniors, 'minors' => $minors, 'labor' => $labor, 'unemployed' => $unemployed, 'women' => $women, 'farmers' => $farmers, 'ofw' => $ofw, 'businessman' => $businessman, 'philhealth' => $philhealth, 'female' => $female, 'male' => $male, 'children' => $children, 'selfemployed' => $selfemployed, 'regular' => $regular, 'contractual' => $contractual, 'casual' => $casual, 'retired' => $retired, 'transactions' => Transactions::latest()->whereNull('issuing_id')->paginate(5)]);
     }
 
     public function profile()
@@ -291,4 +293,5 @@ class HomeController extends Controller
 
         return back()->with("status", "Password changed successfully!");
     }
+
 }

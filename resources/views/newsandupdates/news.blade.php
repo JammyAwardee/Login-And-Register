@@ -102,7 +102,7 @@
             </section>
               
             
-            @else <p class="text-center text-gray-800 py-10 text-xl">No Newsa and Updates articles found.</p>
+            @else <p class="text-center text-gray-800 py-10 text-xl">No News and Updates articles found.</p>
             @endunless
             <div class="w-full py-3 px-3 rounded-b-md mb-5 sm:px-6 bg-[url('/images/lightpaperfibers.png')]">
                 {{$newsandupdates->links()}}
