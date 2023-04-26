@@ -12,9 +12,6 @@
                 {{ session('error') }}
             </div>
             @endif
-            <div class="mx-auto bg-[url('/images/natural_paper.png')] shadow-none w-72 mb-10 sm:mb-16">
-                <img src="{{ asset('/images/logo.png') }}" alt="Barangay SP404">
-            </div>
             <section class="flex flex-col break-words bg-white border-1 rounded-md sm:shadow-lg mb-10">
                 <header class="font-semibold bg-sky-600 text-gray-50 py-5 px-6 sm:py-6 sm:px-8 rounded-t-md">
                     {{ __('Login') }}

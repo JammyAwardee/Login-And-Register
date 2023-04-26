@@ -9,9 +9,6 @@ border: 1px solid rgba( 255, 255, 255, 0.18 )"
 >
     <nav class="px-4 lg:px-6 py-2.5">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-2xl">
-            <a href="{{ url('/') }}" class="flex items-center">
-                <img src={{asset('/images/logosmall.png')}} alt="Logo">
-            </a>
             <div class="flex items-center lg:order-2">
                 <x-welcomenavitems />
                 <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-500 focus:outline-none" aria-controls="mobile-menu-2" aria-expanded="false">
@@ -25,13 +22,6 @@ border: 1px solid rgba( 255, 255, 255, 0.18 )"
                     <li>
                         <a href="/" class="text-xl block py-2 pr-4 pl-3 text-gray-700 rounded bg-primary-700 lg:bg-transparent hover:text-blue-700 lg:text-primary-700 lg:p-0 border-b border-gray-100 lg:border-0 hover:text-amber-50" aria-current="page">Home</a>
                     </li>
-                    <li>
-                        <a href="/services" class="text-xl block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100  hover:text-blue-700 lg:border-0 lg:hover:text-primary-700 lg:p-0">Services</a>
-                    </li>
-                    <li>
-                        <a href="/newsupdates" class="text-xl block py-2 pl-3 text-gray-700 border-b border-gray-100 hover:text-blue-700 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">News & Updates</a>
-                    </li>
-                    
                 </ul>
             </div>
         </div>

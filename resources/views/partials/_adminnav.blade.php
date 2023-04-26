@@ -21,8 +21,7 @@
                     <li>
                         <a href="{{ url('/users') }}" class="block py-2 pl-3 text-gray-700 border-b border-gray-100 hover:text-gray-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Users</a></a>
                     </li>
-                    <li>
-                        <a href="{{ url('/officials') }}" class="block py-2 pl-3 text-gray-700 border-b border-gray-100 hover:text-gray-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Our Officials</a></a>
+                    <li>                        <a href="{{ url('/officials') }}" class="block py-2 pl-3 text-gray-700 border-b border-gray-100 hover:text-gray-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Our Officials</a></a>
                     </li>
                     <li>
                         <a href="{{ url('/logs') }}" class="block py-2 pl-3 text-gray-700 border-b border-gray-100 hover:text-gray-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">Logs</a></a>
